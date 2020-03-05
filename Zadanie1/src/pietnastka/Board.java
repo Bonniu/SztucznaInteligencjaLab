@@ -29,6 +29,10 @@ public class Board {
         }
     }
 
+    public Board() {
+
+    }
+
     public ArrayList<ArrayList<Integer>> getTab() {
         return tab;
     }

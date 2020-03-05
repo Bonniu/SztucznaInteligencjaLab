@@ -13,7 +13,7 @@ public class Main {
             return;
         }
         System.out.println(c.toString());
-        Board t = new Board(3, 3, true);
+        Board t = new Board();
         t.loadTabFromFile(c.getLoadFileName());
         System.out.println(t.toString());
         t.moveD();
