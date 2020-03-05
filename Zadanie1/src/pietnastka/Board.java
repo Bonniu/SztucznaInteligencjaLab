@@ -2,16 +2,17 @@ package pietnastka;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Board {
+public class Board implements Cloneable {
     private ArrayList<ArrayList<Integer>> tab;
     private int rows;
     private int columns;
 
 
-    public Board(int rows, int columns, boolean filled) {
+    public Board(int rows, int columns, boolean filled)  {
         this.rows = rows;
         this.columns = columns;
         this.tab = new ArrayList<>();
@@ -31,6 +32,12 @@ public class Board {
 
     public Board() {
 
+    }
+
+    public Board(ArrayList<ArrayList<Integer>> list) {
+        this.tab = new ArrayList<>(list);
+        this.columns = list.get(0).size();
+        this.rows = list.size();
     }
 
     public ArrayList<ArrayList<Integer>> getTab() {
@@ -86,32 +93,40 @@ public class Board {
         return tmp;
     }
 
-    public void moveD() // w dol czyli nie moze byc ostatni rzad
+    public boolean moveD() // w dol czyli nie moze byc ostatni rzad
     {
         if (find0()[0] != getRows() - 1) {
             zamienMiejsca(find0()[0], find0()[1], find0()[0] + 1, find0()[1]);
+            return true;
         }
+        return false;
     }
 
-    public void moveU() // do gory czyli nie moze byc pierwszy rzad
+    public boolean moveU() // do gory czyli nie moze byc pierwszy rzad
     {
         if (find0()[0] != 0) {
             zamienMiejsca(find0()[0], find0()[1], find0()[0] - 1, find0()[1]);
+            return true;
         }
+        return false;
     }
 
-    public void moveL() // w lewo czyli nie moze byc pierwsza kolumna
+    public boolean moveL() // w lewo czyli nie moze byc pierwsza kolumna
     {
         if (find0()[1] != 0) {
             zamienMiejsca(find0()[0], find0()[1], find0()[0], find0()[1] - 1);
+            return true;
         }
+        return false;
     }
 
-    public void moveR() // w prawo czyli nie moze byc ostatnia kolumna
+    public boolean moveR() // w prawo czyli nie moze byc ostatnia kolumna
     {
         if (find0()[1] != getRows() + 1) {
             zamienMiejsca(find0()[0], find0()[1], find0()[0], find0()[1] + 1);
+            return true;
         }
+        return false;
     }
 
 
@@ -135,6 +150,16 @@ public class Board {
         getTab().get(x1).set(y1, getTab().get(x2).get(y2));
         getTab().get(x2).set(y2, tmp);
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        ArrayList<ArrayList<Integer>> tmp = new ArrayList<>();
+        for(int i = 0; i < this.rows; i++) {
+            tmp.add(i, (ArrayList<Integer>) this.getTab().get(i).clone());
+        }
+        return tmp;
+    }
+
 
     @Override
     public String toString() {
