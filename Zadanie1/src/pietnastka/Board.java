@@ -2,7 +2,6 @@ package pietnastka;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ public class Board implements Cloneable {
     private int columns;
 
 
-    public Board(int rows, int columns, boolean filled)  {
+    public Board(int rows, int columns, boolean filled) {
         this.rows = rows;
         this.columns = columns;
         this.tab = new ArrayList<>();
@@ -93,6 +92,19 @@ public class Board implements Cloneable {
         return tmp;
     }
 
+    public boolean checkIfCorrect() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (i == rows - 1 && j == columns - 1)
+                    return getTab().get(rows - 1).get(columns - 1) == 0;
+                if (getTab().get(i).get(j) != 1 + j + i * columns) {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean moveD() // w dol czyli nie moze byc ostatni rzad
     {
         if (find0()[0] != getRows() - 1) {
@@ -154,7 +166,7 @@ public class Board implements Cloneable {
     @Override
     public Object clone() throws CloneNotSupportedException {
         ArrayList<ArrayList<Integer>> tmp = new ArrayList<>();
-        for(int i = 0; i < this.rows; i++) {
+        for (int i = 0; i < this.rows; i++) {
             tmp.add(i, (ArrayList<Integer>) this.getTab().get(i).clone());
         }
         return tmp;
