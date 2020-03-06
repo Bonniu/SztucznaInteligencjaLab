@@ -13,26 +13,35 @@ public class DFS {
     }
 
     public boolean solve() throws CloneNotSupportedException {
-        System.out.println(order);
         this.parentNode.setIfVisited(true);
         if (this.parentNode.checkIfCorrect())
             return true;
         else
-            this.parentNode.addChildren(order, this.parentNode, 1);
-        System.out.println(parentNode.getChildren().size());
-        for (int i = 0; i < parentNode.getChildren().size(); i++) {
-            if (parentNode.getChildren().get(i) != null) {
-                System.out.println(parentNode.getChildren().get(i).toString());
-                if (parentNode.getChildren().get(i).checkIfCorrect()) {
+            this.parentNode.addChildren(order, 1);
+        System.out.println("XD");
+        iterate(parentNode);
+        return true;
+    }
+
+    public boolean iterate(Node node) {
+        if (node.getChildren() != null) {
+            for (int i = 0; i < node.getChildren().size(); i++) {
+                if (node.getChildren() == null || node.getChildren().size() == 0)
+                    return false;
+                if (node.getChildren().get(i).checkIfCorrect()) {
                     System.out.println("SOLVED ============================================================");
-                    System.out.println(parentNode.getChildren().get(i).toString());
+                    System.out.println(node.getChildren().get(i).toString());
                     //save solution here
                     return true;
                 }
+                System.out.println(node.getChildren().get(i) + " i");
+                iterate(node.getChildren().get(i));
             }
         }
-        return true;
+        return false;
     }
+
+}
 
 
 //    public void moveUP() throws CloneNotSupportedException {
@@ -44,7 +53,7 @@ public class DFS {
 //            System.out.println(t.toString());
 //        }
 //    }
-}
+//}
 
 /*
     wejdz do pierwszego

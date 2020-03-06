@@ -17,7 +17,8 @@ public class Main {
         System.out.println(c.toString());
         Board t = new Board();
         t.loadTabFromFile(c.getLoadFileName());
-        Node n = new Node(t, null);
+        Node n = new Node(t);
+
         System.out.println(t.checkIfCorrect());
         DFS dfs = new DFS(n, c.getOrderHeuristics());
         dfs.solve();
