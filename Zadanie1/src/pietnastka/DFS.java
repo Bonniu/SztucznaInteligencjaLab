@@ -20,6 +20,7 @@ public class DFS {
             this.parentNode.addChildren(order, 1);
         System.out.println("XD");
         iterate(parentNode);
+        System.out.println(" asdkjasjkdasdhjkasd\n\n" + parentNode);
         return true;
     }
 
@@ -35,7 +36,9 @@ public class DFS {
                     return true;
                 }
                 System.out.println(node.getChildren().get(i) + " i");
-                iterate(node.getChildren().get(i));
+                if (iterate(node.getChildren().get(i)))
+                    return true;
+                //save solution here
             }
         }
         return false;

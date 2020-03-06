@@ -7,6 +7,7 @@ public class Node {
     private Board board;
     private boolean ifVisited;
     private ArrayList<Node> children;
+    private char prevPos = ' ';
 
     public Node(Board board, ArrayList<Node> children) {
         this.board = board;
@@ -18,6 +19,10 @@ public class Node {
         this.board = board;
         this.ifVisited = false;
         this.children = new ArrayList<>();
+    }
+
+    public void setPrevPos(char prevPos) {
+        this.prevPos = prevPos;
     }
 
     public void setIfVisited(boolean ifVisited) {
@@ -33,49 +38,49 @@ public class Node {
     }
 
     public Node addChildren(String order, int depth) throws CloneNotSupportedException {
-        System.out.println("depth: "+ depth);
-        if (depth == 5)
+        System.out.println("depth: " + depth);
+        if (depth == 3)
             return null;
         for (int i = 0; i < order.toCharArray().length; i++) {
             if (order.toCharArray()[i] == 'L') {
-                System.out.println("WESZLO DO L");
-                if (getLeftChild() != null) {
+                if (getLeftChild() != null && getPrevPos() != 'L') {
                     Node childNode = getLeftChild();
+                    childNode.setPrevPos('R');
                     getChildren().add(childNode);
-                    System.out.println("child- " + childNode);
                     childNode.addChildren(order, depth + 1);
                 }
             }
             if (order.toCharArray()[i] == 'U') {
-                System.out.println("WESZLO DO U");
-                if (getUpChild() != null) {
+                if (getUpChild() != null  && getPrevPos() != 'U') {
                     Node childNode = getUpChild();
+                    childNode.setPrevPos('D');
                     getChildren().add(childNode);
-                    System.out.println("child- " + childNode);
                     childNode.addChildren(order, depth + 1);
                 }
             }
             if (order.toCharArray()[i] == 'R') {
-                System.out.println("WESZLO DO R");
-                if (getRightChild() != null) {
+                if (getRightChild() != null && getPrevPos() != 'R') {
                     Node childNode = getRightChild();
+                    childNode.setPrevPos('L');
                     getChildren().add(childNode);
-                    System.out.println("child- " + childNode);
                     childNode.addChildren(order, depth + 1);
                 }
             }
             if (order.toCharArray()[i] == 'D') {
-                System.out.println("WESZLO DO D");
-                if (getDownChild() != null) {
+                if (getDownChild() != null  && getPrevPos() != 'D') {
                     Node childNode = getDownChild();
+                    childNode.setPrevPos('U');
                     getChildren().add(childNode);
-                    System.out.println("child- " + childNode);
                     childNode.addChildren(order, depth + 1);
                 }
             }
 
         }
         return null;
+    }
+
+    private char getPrevPos() {
+        return this.prevPos;
     }
 
     public boolean isIfVisited() {
@@ -121,6 +126,14 @@ public class Node {
 
     @Override
     public String toString() {
-        return board.toString();
+        String tmp = "";
+        if (children == null)
+            return getBoard().toString();
+        tmp += "\nparent[" + getBoard().toString() + "], children: [";
+        for (int i = 0; i < children.size(); i++) {
+            tmp += children.get(i).toString();
+        }
+        tmp += "]";
+        return tmp;
     }
 }
