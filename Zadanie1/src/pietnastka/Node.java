@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Node {
 
+    private static int maxDepth;
     private Board board;
     private boolean ifVisited;
     private ArrayList<Node> children;
@@ -13,12 +14,22 @@ public class Node {
         this.board = board;
         this.ifVisited = false;
         this.children = children;
+        maxDepth = 1;
     }
 
     public Node(Board board) {
         this.board = board;
         this.ifVisited = false;
         this.children = new ArrayList<>();
+        maxDepth = 1;
+    }
+
+    public static int getMaxDepth() {
+        return maxDepth;
+    }
+
+    public static void setMaxDepth(int maxDepth) {
+        Node.maxDepth = maxDepth;
     }
 
     public void setPrevPos(char prevPos) {
@@ -37,25 +48,28 @@ public class Node {
         return getBoard().checkIfCorrect();
     }
 
-    public Node addChildren(String order, int depth) throws CloneNotSupportedException {
-        System.out.println("depth: " + depth);
-        if (depth == 3)
+    public Node addChildren(String order, int depth, Statistics statistics) throws CloneNotSupportedException {
+        if (depth > statistics.maxDepth) {
+            statistics.maxDepth = depth;
+        }
+        if (depth == 20)
             return null;
+
         for (int i = 0; i < order.toCharArray().length; i++) {
             if (order.toCharArray()[i] == 'L') {
                 if (getLeftChild() != null && getPrevPos() != 'L') {
                     Node childNode = getLeftChild();
                     childNode.setPrevPos('R');
                     getChildren().add(childNode);
-                    childNode.addChildren(order, depth + 1);
+                    childNode.addChildren(order, depth + 1, statistics);
                 }
             }
             if (order.toCharArray()[i] == 'U') {
-                if (getUpChild() != null  && getPrevPos() != 'U') {
+                if (getUpChild() != null && getPrevPos() != 'U') {
                     Node childNode = getUpChild();
                     childNode.setPrevPos('D');
                     getChildren().add(childNode);
-                    childNode.addChildren(order, depth + 1);
+                    childNode.addChildren(order, depth + 1, statistics);
                 }
             }
             if (order.toCharArray()[i] == 'R') {
@@ -63,15 +77,15 @@ public class Node {
                     Node childNode = getRightChild();
                     childNode.setPrevPos('L');
                     getChildren().add(childNode);
-                    childNode.addChildren(order, depth + 1);
+                    childNode.addChildren(order, depth + 1, statistics);
                 }
             }
             if (order.toCharArray()[i] == 'D') {
-                if (getDownChild() != null  && getPrevPos() != 'D') {
+                if (getDownChild() != null && getPrevPos() != 'D') {
                     Node childNode = getDownChild();
                     childNode.setPrevPos('U');
                     getChildren().add(childNode);
-                    childNode.addChildren(order, depth + 1);
+                    childNode.addChildren(order, depth + 1, statistics);
                 }
             }
 

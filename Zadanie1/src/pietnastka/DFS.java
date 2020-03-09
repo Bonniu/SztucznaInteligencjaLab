@@ -13,14 +13,16 @@ public class DFS {
     }
 
     public boolean solve() throws CloneNotSupportedException {
+        Statistics statistics = new Statistics();
         this.parentNode.setIfVisited(true);
         if (this.parentNode.checkIfCorrect())
             return true;
         else
-            this.parentNode.addChildren(order, 1);
+            this.parentNode.addChildren(order, 0, statistics);
         System.out.println("XD");
         iterate(parentNode);
-        System.out.println(" asdkjasjkdasdhjkasd\n\n" + parentNode);
+        System.out.println("maxz depth " + statistics.maxDepth);
+
         return true;
     }
 
@@ -35,7 +37,6 @@ public class DFS {
                     //save solution here
                     return true;
                 }
-                System.out.println(node.getChildren().get(i) + " i");
                 if (iterate(node.getChildren().get(i)))
                     return true;
                 //save solution here
