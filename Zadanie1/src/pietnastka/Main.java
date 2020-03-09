@@ -17,20 +17,12 @@ public class Main {
         System.out.println(c.toString());
         Board t = new Board();
         t.loadTabFromFile(c.getLoadFileName());
-        Node n = new Node(t);
+        Node n = new Node(t, null);
 
         System.out.println(t.checkIfCorrect());
         DFS dfs = new DFS(n, c.getOrderHeuristics());
         dfs.solve();
-//        System.out.println(t.toString());
-//        t.moveD();
-//        System.out.println(t.toString());
-//        t.moveL();
-//        System.out.println(t.toString());
-//        t.moveU();
-//        System.out.println(t.toString());
-//        t.moveR();
-//        System.out.println(t.toString());
+
 
     }
 
