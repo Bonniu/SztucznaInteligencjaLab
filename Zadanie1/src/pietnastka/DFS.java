@@ -10,8 +10,7 @@ public class DFS {
         this.order = order;
     }
 
-    public boolean solve() throws CloneNotSupportedException {
-        Statistics statistics = new Statistics();
+    public boolean solve(Statistics statistics) throws CloneNotSupportedException {
         this.parentNode.setIfVisited(true);
         if (this.parentNode.checkIfCorrect()) {
             statistics.solved = true;
@@ -19,7 +18,6 @@ public class DFS {
             return true;
         } else
             addChildren(order, 1, statistics, parentNode);
-        System.out.println(statistics.toString());
         return true;
     }
 

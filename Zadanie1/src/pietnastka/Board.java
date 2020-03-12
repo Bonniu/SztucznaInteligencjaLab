@@ -10,25 +10,6 @@ public class Board implements Cloneable {
     private int rows;
     private int columns;
 
-
-    public Board(int rows, int columns, boolean filled) {
-        this.rows = rows;
-        this.columns = columns;
-        this.tab = new ArrayList<>();
-        if (filled) {
-            for (int j = 0; j < rows; j++) {
-                ArrayList<Integer> temp = new ArrayList<>(rows);
-                for (int i = 1; i <= columns; i++) {
-                    if (i + columns * j != columns * rows)
-                        temp.add(i + columns * j);
-                    else
-                        temp.add(0);
-                }
-                tab.add(temp);
-            }
-        }
-    }
-
     public Board() {
 
     }
@@ -164,7 +145,7 @@ public class Board implements Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         ArrayList<ArrayList<Integer>> tmp = new ArrayList<>();
         for (int i = 0; i < this.rows; i++) {
             tmp.add(i, (ArrayList<Integer>) this.getTab().get(i).clone());

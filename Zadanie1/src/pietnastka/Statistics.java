@@ -1,14 +1,13 @@
 package pietnastka;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Statistics {
     public int maxDepth = 1;
     public boolean solved = false;
     public String solution = "";
     public boolean firstSolve = true;
     public int visitedNodes = 1;
+    private long startTime;
+    public double elapsedTime = -1;
 
     public boolean reverseSolution() {
         char[] tmp = solution.toCharArray();
@@ -30,6 +29,20 @@ public class Statistics {
                 ", solution='" + solution + '\'' +
                 ", firstSolve=" + firstSolve +
                 ", visitedNodes=" + visitedNodes +
+                ", elapsedTime=" + elapsedTime +
                 '}';
+    }
+
+    public void startStopwatch() {
+        this.startTime = System.nanoTime();
+        this.elapsedTime = -1;
+    }
+
+    public void stopStopwatch() {
+        long timeElapsed = System.nanoTime() - startTime;
+        timeElapsed /= 1000;
+        double milisecs = ((double) timeElapsed) / 1000;
+        System.out.println("Execution time in milliseconds : " + milisecs);
+        this.elapsedTime = milisecs;
     }
 }

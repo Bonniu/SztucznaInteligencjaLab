@@ -5,34 +5,17 @@ import java.util.ArrayList;
 public class Node {
 
     private Node parent;
-    private static int maxDepth;
     private Board board;
     private boolean ifVisited;
     private ArrayList<Node> children;
     private char prevMove = ' ';
 
-    public Node(Board board, ArrayList<Node> children, Node parent) {
-        this.board = board;
-        this.ifVisited = false;
-        this.children = children;
-        maxDepth = 1;
-        this.parent = parent;
-    }
 
     public Node(Board board, Node parent) {
         this.board = board;
         this.ifVisited = false;
         this.children = new ArrayList<>();
-        maxDepth = 1;
         this.parent = parent;
-    }
-
-    public static int getMaxDepth() {
-        return maxDepth;
-    }
-
-    public static void setMaxDepth(int maxDepth) {
-        Node.maxDepth = maxDepth;
     }
 
     public void setPrevMove(char prevMove) {
