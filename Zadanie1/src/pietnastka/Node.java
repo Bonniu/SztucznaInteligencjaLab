@@ -95,4 +95,38 @@ public class Node {
     public Node getParent() {
         return parent;
     }
+
+    public void wykonajRuchBFS(String order) throws CloneNotSupportedException {
+        for (int i = 0; i < order.toCharArray().length; i++) {
+            if (order.toCharArray()[i] == 'L') {
+                if (this.getLeftChild() != null && this.getPrevMove() != 'R') {
+                    Node childNode = this.getLeftChild();
+                    childNode.setPrevMove('L');
+                    this.getChildren().add(childNode);
+                }
+            }
+            if (order.toCharArray()[i] == 'U') {
+                if (this.getUpChild() != null && this.getPrevMove() != 'D') {
+                    Node childNode = this.getUpChild();
+                    childNode.setPrevMove('U');
+                    this.getChildren().add(childNode);
+                }
+            }
+            if (order.toCharArray()[i] == 'R') {
+                if (this.getRightChild() != null && this.getPrevMove() != 'L') {
+                    Node childNode = this.getRightChild();
+                    childNode.setPrevMove('R');
+                    this.getChildren().add(childNode);
+                }
+            }
+            if (order.toCharArray()[i] == 'D') {
+                if (this.getDownChild() != null && this.getPrevMove() != 'U') {
+                    Node childNode = this.getDownChild();
+                    childNode.setPrevMove('D');
+                    this.getChildren().add(childNode);
+                }
+            }
+        }
+
+    }
 }

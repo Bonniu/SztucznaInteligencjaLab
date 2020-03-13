@@ -1,9 +1,24 @@
 package pietnastka;
 
+import java.util.List;
+
 public class Main {
 
 
     public static void main(String[] args) throws CloneNotSupportedException {
+//        StartController c;
+//        try {
+//            c = new StartController(args);
+//        } catch (ExceptionInInitializerError exception) {
+//            exception.printStackTrace();
+//            return;
+//        }
+//        Board t = new Board();
+//        t.loadTabFromFile(c.getLoadFileName());
+//        Node n = new Node(t, null);
+//
+//        methodController(c, n);
+
         StartController c;
         try {
             c = new StartController(args);
@@ -15,7 +30,8 @@ public class Main {
         t.loadTabFromFile(c.getLoadFileName());
         Node n = new Node(t, null);
 
-        methodController(c, n);
+        BFS bfs = new BFS(c.getOrderHeuristics());
+        bfs.poszukiwanieBFS(n);
 
 
     }
