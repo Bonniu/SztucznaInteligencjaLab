@@ -4,6 +4,8 @@ import java.io.IOException;
 
 public class Main {
 
+    public static final int MAX_DEPTH = 5;
+
     public static void main(String[] args) throws CloneNotSupportedException, IOException {
         StartController c;
         try {
@@ -14,8 +16,7 @@ public class Main {
         }
         Board t = new Board();
         t.loadTabFromFile(c.getLoadFileName());
-        Node n = new Node(t, null);
-
+        Node n = new Node(t, null, 0);
         methodController(c, n);
     }
 

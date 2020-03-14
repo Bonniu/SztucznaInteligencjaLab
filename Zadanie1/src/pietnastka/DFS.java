@@ -19,12 +19,12 @@ public class DFS extends Strategy {
             getStatistics().solved = true;
             return true;
         } else
-            addChildren(getOrder(), 1, getParentNode());
+            addChildren(getOrder(), getParentNode());
         return true;
     }
 
-    public void addChildren(String order, int depth, Node node) throws CloneNotSupportedException {
-        if (depth == 5)
+    public void addChildren(String order, Node node) throws CloneNotSupportedException {
+        if (node.getDepth() > Main.MAX_DEPTH)
             return;
 
         if (getStatistics().solved)
@@ -34,8 +34,8 @@ public class DFS extends Strategy {
             System.out.println(node);
         }
 
-        if (depth > getStatistics().maxDepth) {
-            getStatistics().maxDepth = depth;
+        if (node.getDepth() > getStatistics().maxDepth) {
+            getStatistics().maxDepth = node.getDepth();
         }
 
         if (node.checkIfCorrect()) {
@@ -52,7 +52,7 @@ public class DFS extends Strategy {
                     Node childNode = node.getLeftChild();
                     childNode.setPrevMove('L');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, childNode);
+                    addChildren(order, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'U') {
@@ -60,7 +60,7 @@ public class DFS extends Strategy {
                     Node childNode = node.getUpChild();
                     childNode.setPrevMove('U');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, childNode);
+                    addChildren(order, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'R') {
@@ -68,7 +68,7 @@ public class DFS extends Strategy {
                     Node childNode = node.getRightChild();
                     childNode.setPrevMove('R');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, childNode);
+                    addChildren(order, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'D') {
@@ -76,7 +76,7 @@ public class DFS extends Strategy {
                     Node childNode = node.getDownChild();
                     childNode.setPrevMove('D');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, childNode);
+                    addChildren(order, childNode);
                 }
             }
 
