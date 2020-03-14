@@ -19,19 +19,15 @@ public class DFS extends Strategy {
             getStatistics().solved = true;
             return true;
         } else
-            addChildren(getOrder(), getParentNode());
+            iterate(getOrder(), getParentNode());
         return true;
     }
 
-    public void addChildren(String order, Node node) throws CloneNotSupportedException {
-        if (node.getDepth() > Main.MAX_DEPTH)
-            return;
-
-        if (getStatistics().solved)
+    public void iterate(String order, Node node) throws CloneNotSupportedException {
+        if (node.getDepth() > Main.MAX_DEPTH || getStatistics().solved)
             return;
         else if (node.getParent() != null) {
             getStatistics().visitedNodes++;
-            System.out.println(node);
         }
 
         if (node.getDepth() > getStatistics().maxDepth) {
@@ -41,18 +37,18 @@ public class DFS extends Strategy {
         if (node.checkIfCorrect()) {
             System.out.println("----SOLVED----");
             getStatistics().solved = true;
-            getStatistics().firstSolve = false;
             makeSolution(node, getStatistics());
             return;
         }
 
+        //adding children and recursion
         for (int i = 0; i < order.toCharArray().length; i++) {
             if (order.toCharArray()[i] == 'L') {
                 if (node.getLeftChild() != null && node.getPrevMove() != 'R') {
                     Node childNode = node.getLeftChild();
                     childNode.setPrevMove('L');
                     node.getChildren().add(childNode);
-                    addChildren(order, childNode);
+                    iterate(order, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'U') {
@@ -60,7 +56,7 @@ public class DFS extends Strategy {
                     Node childNode = node.getUpChild();
                     childNode.setPrevMove('U');
                     node.getChildren().add(childNode);
-                    addChildren(order, childNode);
+                    iterate(order, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'R') {
@@ -68,7 +64,7 @@ public class DFS extends Strategy {
                     Node childNode = node.getRightChild();
                     childNode.setPrevMove('R');
                     node.getChildren().add(childNode);
-                    addChildren(order, childNode);
+                    iterate(order, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'D') {
@@ -76,7 +72,7 @@ public class DFS extends Strategy {
                     Node childNode = node.getDownChild();
                     childNode.setPrevMove('D');
                     node.getChildren().add(childNode);
-                    addChildren(order, childNode);
+                    iterate(order, childNode);
                 }
             }
 

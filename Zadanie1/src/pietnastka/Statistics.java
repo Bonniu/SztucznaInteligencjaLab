@@ -8,7 +8,6 @@ public class Statistics {
     public int maxDepth = 1;
     public boolean solved = false;
     public String solution = "";
-    public boolean firstSolve = true;
     public int visitedNodes = 1;
     public int processedNodes = 1;
     private long startTime;
@@ -27,14 +26,16 @@ public class Statistics {
         return false;
     }
 
+
     @Override
     public String toString() {
         return "Statistics{" +
                 "maxDepth=" + maxDepth +
                 ", solved=" + solved +
                 ", solution='" + solution + '\'' +
-                ", firstSolve=" + firstSolve +
                 ", visitedNodes=" + visitedNodes +
+                ", processedNodes=" + processedNodes +
+                ", startTime=" + startTime +
                 ", elapsedTime=" + elapsedTime +
                 '}';
     }
