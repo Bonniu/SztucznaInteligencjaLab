@@ -4,24 +4,25 @@ public class DFS {
 
     private Node parentNode;
     private String order;
+    private Statistics statistics;
 
-    public DFS(Node parentNode, String order) {
+    public DFS(Node parentNode, String order, Statistics statistics) {
         this.parentNode = parentNode;
         this.order = order;
+        this.statistics = statistics;
     }
 
-    public boolean solve(Statistics statistics) throws CloneNotSupportedException {
+    public boolean solveDFS() throws CloneNotSupportedException {
         this.parentNode.setIfVisited(true);
         if (this.parentNode.checkIfCorrect()) {
             statistics.solved = true;
-            System.out.println(statistics.toString());
             return true;
         } else
-            addChildren(order, 1, statistics, parentNode);
+            addChildren(order, 1, parentNode);
         return true;
     }
 
-    public void addChildren(String order, int depth, Statistics statistics, Node node) throws CloneNotSupportedException {
+    public void addChildren(String order, int depth, Node node) throws CloneNotSupportedException {
         if (depth == 5)
             return;
 
@@ -50,7 +51,7 @@ public class DFS {
                     Node childNode = node.getLeftChild();
                     childNode.setPrevMove('L');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, statistics, childNode);
+                    addChildren(order, depth + 1, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'U') {
@@ -58,7 +59,7 @@ public class DFS {
                     Node childNode = node.getUpChild();
                     childNode.setPrevMove('U');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, statistics, childNode);
+                    addChildren(order, depth + 1, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'R') {
@@ -66,7 +67,7 @@ public class DFS {
                     Node childNode = node.getRightChild();
                     childNode.setPrevMove('R');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, statistics, childNode);
+                    addChildren(order, depth + 1, childNode);
                 }
             }
             if (order.toCharArray()[i] == 'D') {
@@ -74,7 +75,7 @@ public class DFS {
                     Node childNode = node.getDownChild();
                     childNode.setPrevMove('D');
                     node.getChildren().add(childNode);
-                    addChildren(order, depth + 1, statistics, childNode);
+                    addChildren(order, depth + 1, childNode);
                 }
             }
 
@@ -93,27 +94,4 @@ public class DFS {
 }
 
 
-//    public void moveUP() throws CloneNotSupportedException {
-//        System.out.println(b.toString());
-//        Board t = new Board((ArrayList<ArrayList<Integer>>) b.clone());
-//        System.out.println(t.toString());
-//        if (b.moveU()) {
-//            System.out.println(b.toString());
-//            System.out.println(t.toString());
-//        }
-//    }
-//}
 
-/*
-    wejdz do pierwszego
-    wejdz do dziecka wg kolejnosci np L
-    wejdz do dziecka wg kolejnosci np L
-    .
-    .
-    .
-    ostatnie (20) poprawne ze wzorcem - wyjscie
-    nie poprawne- cofnij do rodzenstwa, jak nie ma
-    to do rodzica
-
-
- */

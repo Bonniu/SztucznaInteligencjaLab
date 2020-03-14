@@ -10,6 +10,7 @@ public class Statistics {
     public double elapsedTime = -1;
 
     public boolean reverseSolution() {
+        this.solution = solution.trim();
         char[] tmp = solution.toCharArray();
         for (int i = 0; i < tmp.length / 2; i++) {
             char t = tmp[i];
