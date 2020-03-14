@@ -1,9 +1,12 @@
 package pietnastka;
 
+import java.io.IOException;
+
 public class Main {
 
+    public static final int MAX_DEPTH = 5;
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) throws CloneNotSupportedException, IOException {
         StartController c;
         try {
             c = new StartController(args);
@@ -13,31 +16,46 @@ public class Main {
         }
         Board t = new Board();
         t.loadTabFromFile(c.getLoadFileName());
-        Node n = new Node(t, null);
-
+        Node n = new Node(t, null, 0);
         methodController(c, n);
     }
 
-    public static void methodController(StartController c, Node n) throws CloneNotSupportedException {
+    public static void methodController(StartController c, Node n) throws CloneNotSupportedException, IOException {
         System.out.println(c.toString());
+        Statistics st = new Statistics();
         if (c.getMethod().toLowerCase().equals("dfs")) {
-            Statistics st = new Statistics();
             DFS dfs = new DFS(n, c.getOrderHeuristics(), st);
             st.startStopwatch();
             dfs.solveDFS();
             st.stopStopwatch();
             System.out.println(st.toString());
         } else if (c.getMethod().toLowerCase().equals("bfs")) {
-            Statistics st = new Statistics();
-            BFS bfs = new BFS(c.getOrderHeuristics(), st);
+            BFS bfs = new BFS(n, c.getOrderHeuristics(), st);
             st.startStopwatch();
-            bfs.solveBFS(n);
+            bfs.solveBFS();
             st.stopStopwatch();
             System.out.println(st.toString());
-        } else //astr
-        {
+        } else {
+            //astr +
+            if (c.getOrderHeuristics().equals("manh")) {
+                //astr manh
+                Manhattan manhattan = new Manhattan(n, st);
+                st.startStopwatch();
+                manhattan.solveManhattan();
+                st.stopStopwatch();
+                System.out.println(st.toString());
+            } else {
+                // astr hamm
+                Hamming hamming = new Hamming(n, st);
+                st.startStopwatch();
+                hamming.solveHamming();
+                st.stopStopwatch();
+                System.out.println(st.toString());
 
+
+            }
         }
+        st.saveSolutionToFile(c.getSaveFileName(), c.getAdditionalFileName());
     }
 
 

@@ -9,13 +9,27 @@ public class Node {
     private boolean ifVisited;
     private ArrayList<Node> children;
     private char prevMove = ' ';
+    private int metricValue;
+    private int depth;
 
+    public int getDepth() {
+        return depth;
+    }
 
-    public Node(Board board, Node parent) {
+    public Node(Board board, Node parent, int depth) {
         this.board = board;
         this.ifVisited = false;
         this.children = new ArrayList<>();
         this.parent = parent;
+        this.depth = depth;
+    }
+
+    public void setMetricValue(int metricValue) {
+        this.metricValue = metricValue;
+    }
+
+    public int getMetricValue() {
+        return metricValue;
     }
 
     public void setPrevMove(char prevMove) {
@@ -38,7 +52,7 @@ public class Node {
         return this.prevMove;
     }
 
-    public boolean isIfVisited() {
+    public boolean ifVisited() {
         return ifVisited;
     }
 
@@ -49,7 +63,7 @@ public class Node {
     public Node getLeftChild() throws CloneNotSupportedException {
         Board t = new Board((ArrayList<ArrayList<Integer>>) board.clone());
         if (t.moveL()) {
-            return new Node(t, this);
+            return new Node(t, this, depth + 1);
         }
         return null;
     }
@@ -57,7 +71,7 @@ public class Node {
     public Node getRightChild() throws CloneNotSupportedException {
         Board t = new Board((ArrayList<ArrayList<Integer>>) board.clone());
         if (t.moveR()) {
-            return new Node(t, this);
+            return new Node(t, this, depth + 1);
         }
         return null;
     }
@@ -65,7 +79,7 @@ public class Node {
     public Node getUpChild() throws CloneNotSupportedException {
         Board t = new Board((ArrayList<ArrayList<Integer>>) board.clone());
         if (t.moveU()) {
-            return new Node(t, this);
+            return new Node(t, this, depth + 1);
         }
         return null;
     }
@@ -73,7 +87,7 @@ public class Node {
     public Node getDownChild() throws CloneNotSupportedException {
         Board t = new Board((ArrayList<ArrayList<Integer>>) board.clone());
         if (t.moveD()) {
-            return new Node(t, this);
+            return new Node(t, this, depth + 1);
         }
         return null;
     }
@@ -95,8 +109,6 @@ public class Node {
     public Node getParent() {
         return parent;
     }
-
-
 
 
 }

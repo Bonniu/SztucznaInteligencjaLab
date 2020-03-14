@@ -74,22 +74,32 @@ public class Board implements Cloneable {
     }
 
     public boolean checkIfCorrect() {
+        if (incorrectPlaced() == 0)
+            return true;
+        else
+            return false;
+    }
+
+    public int incorrectPlaced() {
+        int counter = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if (i == rows - 1 && j == columns - 1)
-                    return getTab().get(rows - 1).get(columns - 1) == 0;
-                if (getTab().get(i).get(j) != 1 + j + i * columns) {
-                    return false;
-                }
+                    if (getTab().get(rows - 1).get(columns - 1) == 0)
+                        counter++;
+                if (getTab().get(i).get(j) == 1 + j + i * columns)
+                    counter++;
             }
         }
-        return false;
+        return rows * columns - counter;
+
     }
+
 
     public boolean moveD() // w dol czyli nie moze byc ostatni rzad
     {
         if (find0()[0] != getRows() - 1) {
-            zamienMiejsca(find0()[0], find0()[1], find0()[0] + 1, find0()[1]);
+            swapPlaces(find0()[0], find0()[1], find0()[0] + 1, find0()[1]);
             return true;
         }
         return false;
@@ -98,7 +108,7 @@ public class Board implements Cloneable {
     public boolean moveU() // do gory czyli nie moze byc pierwszy rzad
     {
         if (find0()[0] != 0) {
-            zamienMiejsca(find0()[0], find0()[1], find0()[0] - 1, find0()[1]);
+            swapPlaces(find0()[0], find0()[1], find0()[0] - 1, find0()[1]);
             return true;
         }
         return false;
@@ -107,7 +117,7 @@ public class Board implements Cloneable {
     public boolean moveL() // w lewo czyli nie moze byc pierwsza kolumna
     {
         if (find0()[1] != 0) {
-            zamienMiejsca(find0()[0], find0()[1], find0()[0], find0()[1] - 1);
+            swapPlaces(find0()[0], find0()[1], find0()[0], find0()[1] - 1);
             return true;
         }
         return false;
@@ -115,8 +125,8 @@ public class Board implements Cloneable {
 
     public boolean moveR() // w prawo czyli nie moze byc ostatnia kolumna
     {
-        if (find0()[1] != getRows() + 1) {
-            zamienMiejsca(find0()[0], find0()[1], find0()[0], find0()[1] + 1);
+        if (find0()[1] != getColumns() - 1) {
+            swapPlaces(find0()[0], find0()[1], find0()[0], find0()[1] + 1);
             return true;
         }
         return false;
@@ -137,7 +147,7 @@ public class Board implements Cloneable {
         return tmp;
     }
 
-    private void zamienMiejsca(int x1, int y1, int x2, int y2) //zamienia miejscami
+    private void swapPlaces(int x1, int y1, int x2, int y2) //zamienia miejscami
     {
         int tmp = getTab().get(x1).get(y1);
         getTab().get(x1).set(y1, getTab().get(x2).get(y2));
