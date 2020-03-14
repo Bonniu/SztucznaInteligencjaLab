@@ -1,24 +1,25 @@
 package pietnastka;
 
-public class DFS {
+public class DFS extends Strategy {
 
-    private Node parentNode;
     private String order;
-    private Statistics statistics;
 
     public DFS(Node parentNode, String order, Statistics statistics) {
-        this.parentNode = parentNode;
+        super(parentNode, statistics);
         this.order = order;
-        this.statistics = statistics;
+    }
+
+    public String getOrder() {
+        return order;
     }
 
     public boolean solveDFS() throws CloneNotSupportedException {
-        this.parentNode.setIfVisited(true);
-        if (this.parentNode.checkIfCorrect()) {
-            statistics.solved = true;
+        this.getParentNode().setIfVisited(true);
+        if (this.getParentNode().checkIfCorrect()) {
+            getStatistics().solved = true;
             return true;
         } else
-            addChildren(order, 1, parentNode);
+            addChildren(getOrder(), 1, getParentNode());
         return true;
     }
 
@@ -26,22 +27,22 @@ public class DFS {
         if (depth == 5)
             return;
 
-        if (statistics.solved)
+        if (getStatistics().solved)
             return;
-        else if (node.getParent() != null){
-            statistics.visitedNodes++;
+        else if (node.getParent() != null) {
+            getStatistics().visitedNodes++;
             System.out.println(node);
         }
 
-        if (depth > statistics.maxDepth) {
-            statistics.maxDepth = depth;
+        if (depth > getStatistics().maxDepth) {
+            getStatistics().maxDepth = depth;
         }
 
         if (node.checkIfCorrect()) {
             System.out.println("----SOLVED----");
-            statistics.solved = true;
-            statistics.firstSolve = false;
-            makeSolution(node, statistics);
+            getStatistics().solved = true;
+            getStatistics().firstSolve = false;
+            makeSolution(node, getStatistics());
             return;
         }
 

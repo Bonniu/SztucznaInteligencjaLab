@@ -3,35 +3,39 @@ package pietnastka;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BFS {
-    private String order;
-    private Statistics statistics;
+public class BFS extends Strategy {
 
-    public BFS(String order, Statistics statistics) {
+    private String order;
+
+    public BFS(Node parentNode, String order, Statistics statistics) {
+        super(parentNode, statistics);
         this.order = order;
-        this.statistics = statistics;
     }
 
-    public List<Node> solveBFS(Node root) throws CloneNotSupportedException {
+    public String getOrder() {
+        return order;
+    }
+
+    public List<Node> solveBFS() throws CloneNotSupportedException {
         List<Node> sciezkaDoRozw = new ArrayList<>();
         List<Node> wezlyDoOdwiedzenia = new ArrayList<>();
         List<Node> odwiedzoneWezly = new ArrayList<>();
 
         //dodaje pierwsza galez
-        wezlyDoOdwiedzenia.add(root);
+        wezlyDoOdwiedzenia.add(getParentNode());
 
-        while (!statistics.solved) {
+        while (!getStatistics().solved) {
             Node aktualnyWezel = wezlyDoOdwiedzenia.get(0);
             odwiedzoneWezly.add(aktualnyWezel);
             wezlyDoOdwiedzenia.remove(0);
-            moveBFS(aktualnyWezel, order);
+            moveBFS(aktualnyWezel, getOrder());
             //dodaje kolejne wezly (ich dzieci do kolejki)
             wezlyDoOdwiedzenia.addAll(aktualnyWezel.getChildren());
 
             // zeby sprawdzac co chwila czy poprawne
             for (int i = 0; i < odwiedzoneWezly.size(); i++) {
                 if (odwiedzoneWezly.get(i).getBoard().checkIfCorrect()) {
-                    statistics.solved = true;
+                    getStatistics().solved = true;
                     System.out.println("xd");
                     Node poprawnyNode = odwiedzoneWezly.get(i);
                     System.out.println(poprawnyNode.getBoard().toString());
@@ -64,9 +68,9 @@ public class BFS {
         System.out.println("TRASA DO ROZWIAZANIA OD KONCA");
 
         for (int i = 0; i < sciezka.size(); i++) {
-            this.statistics.solution += sciezka.get(i).getPrevMove();
+            this.getStatistics().solution += sciezka.get(i).getPrevMove();
         }
-        statistics.reverseSolution();
+        getStatistics().reverseSolution();
     }
 
     public void moveBFS(Node node, String order) throws CloneNotSupportedException {
