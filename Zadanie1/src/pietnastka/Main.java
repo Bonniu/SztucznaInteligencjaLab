@@ -1,8 +1,10 @@
 package pietnastka;
 
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main(String[] args) throws CloneNotSupportedException, IOException {
         StartController c;
         try {
             c = new StartController(args);
@@ -17,7 +19,7 @@ public class Main {
         methodController(c, n);
     }
 
-    public static void methodController(StartController c, Node n) throws CloneNotSupportedException {
+    public static void methodController(StartController c, Node n) throws CloneNotSupportedException, IOException {
         System.out.println(c.toString());
         Statistics st = new Statistics();
         if (c.getMethod().toLowerCase().equals("dfs")) {
@@ -32,20 +34,27 @@ public class Main {
             bfs.solveBFS();
             st.stopStopwatch();
             System.out.println(st.toString());
-        } else //astr
-        {
+        } else {
+            //astr +
             if (c.getOrderHeuristics().equals("manh")) {
-                //manhattan - manh
+                //astr manh
                 Manhattan manhattan = new Manhattan(n, st);
+                st.startStopwatch();
                 manhattan.solveManhattan();
-
+                st.stopStopwatch();
+                System.out.println(st.toString());
             } else {
-                // hamming - hamm
+                // astr hamm
                 Hamming hamming = new Hamming(n, st);
+                st.startStopwatch();
                 hamming.solveHamming();
+                st.stopStopwatch();
+                System.out.println(st.toString());
+
 
             }
         }
+        st.saveSolutionToFile(c.getSaveFileName(), c.getAdditionalFileName());
     }
 
 
