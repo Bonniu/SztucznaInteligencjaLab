@@ -5,14 +5,14 @@ import java.util.List;
 
 public class BFS {
     private String order;
-    boolean isSolved;
+    private Statistics statistics;
 
-    public BFS(String order) {
+    public BFS(String order, Statistics statistics) {
         this.order = order;
-        this.isSolved = false;
+        this.statistics = statistics;
     }
 
-    public List<Node> poszukiwanieBFS(Node root) throws CloneNotSupportedException {
+    public List<Node> solveBFS(Node root) throws CloneNotSupportedException {
         List<Node> sciezkaDoRozw = new ArrayList<>();
         List<Node> wezlyDoOdwiedzenia = new ArrayList<>();
         List<Node> odwiedzoneWezly = new ArrayList<>();
@@ -20,25 +20,23 @@ public class BFS {
         //dodaje pierwsza galez
         wezlyDoOdwiedzenia.add(root);
 
-        while (!this.isSolved) {
+        while (!statistics.solved) {
             Node aktualnyWezel = wezlyDoOdwiedzenia.get(0);
             odwiedzoneWezly.add(aktualnyWezel);
             wezlyDoOdwiedzenia.remove(0);
-            aktualnyWezel.wykonajRuchBFS(order);
+            moveBFS(aktualnyWezel, order);
             //dodaje kolejne wezly (ich dzieci do kolejki)
-            for (int i = 0; i < aktualnyWezel.getChildren().size(); i++) {
-                wezlyDoOdwiedzenia.add(aktualnyWezel.getChildren().get(i));
-            }
+            wezlyDoOdwiedzenia.addAll(aktualnyWezel.getChildren());
 
             // zeby sprawdzac co chwila czy poprawne
             for (int i = 0; i < odwiedzoneWezly.size(); i++) {
                 if (odwiedzoneWezly.get(i).getBoard().checkIfCorrect()) {
-                    this.isSolved = true;
+                    statistics.solved = true;
                     System.out.println("xd");
                     Node poprawnyNode = odwiedzoneWezly.get(i);
                     System.out.println(poprawnyNode.getBoard().toString());
                     System.out.println("xd1");
-                    znajdz_droge(sciezkaDoRozw, poprawnyNode);
+                    findWay(sciezkaDoRozw, poprawnyNode);
                 }
             }
 
@@ -55,7 +53,7 @@ public class BFS {
     }
 
     //znajduje droge do rozwiazania
-    public void znajdz_droge(List<Node> sciezka, Node n) {
+    public void findWay(List<Node> sciezka, Node n) {
         Node aktualnyNode = n;
         sciezka.add(aktualnyNode);
 
@@ -64,8 +62,43 @@ public class BFS {
             sciezka.add(aktualnyNode);
         }
         System.out.println("TRASA DO ROZWIAZANIA OD KONCA");
+
         for (int i = 0; i < sciezka.size(); i++) {
-            System.out.println(sciezka.get(i).getPrevMove());
+            this.statistics.solution += sciezka.get(i).getPrevMove();
+        }
+        statistics.reverseSolution();
+    }
+
+    public void moveBFS(Node node, String order) throws CloneNotSupportedException {
+        for (int i = 0; i < order.toCharArray().length; i++) {
+            if (order.toCharArray()[i] == 'L') {
+                if (node.getLeftChild() != null && node.getPrevMove() != 'R') {
+                    Node childNode = node.getLeftChild();
+                    childNode.setPrevMove('L');
+                    node.getChildren().add(childNode);
+                }
+            }
+            if (order.toCharArray()[i] == 'U') {
+                if (node.getUpChild() != null && node.getPrevMove() != 'D') {
+                    Node childNode = node.getUpChild();
+                    childNode.setPrevMove('U');
+                    node.getChildren().add(childNode);
+                }
+            }
+            if (order.toCharArray()[i] == 'R') {
+                if (node.getRightChild() != null && node.getPrevMove() != 'L') {
+                    Node childNode = node.getRightChild();
+                    childNode.setPrevMove('R');
+                    node.getChildren().add(childNode);
+                }
+            }
+            if (order.toCharArray()[i] == 'D') {
+                if (node.getDownChild() != null && node.getPrevMove() != 'U') {
+                    Node childNode = node.getDownChild();
+                    childNode.setPrevMove('D');
+                    node.getChildren().add(childNode);
+                }
+            }
         }
     }
 }
