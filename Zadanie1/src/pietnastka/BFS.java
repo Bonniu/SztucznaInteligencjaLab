@@ -62,7 +62,7 @@ public class BFS extends Strategy {
             this.getStatistics().solution += aktualnyNode.getPrevMove();
             aktualnyNode = aktualnyNode.getParent();
         }
-        getStatistics().reverseSolution();
+        getStatistics().revertSolution();
     }
 
     public void moveBFS(Node node, String order) throws CloneNotSupportedException {

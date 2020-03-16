@@ -35,7 +35,6 @@ public class DFS extends Strategy {
         }
 
         if (node.checkIfCorrect()) {
-            System.out.println("----SOLVED----");
             getStatistics().solved = true;
             makeSolution(node, getStatistics());
             return;
@@ -85,7 +84,7 @@ public class DFS extends Strategy {
             statistics.solution += tmp.getPrevMove();
             tmp = tmp.getParent();
         }
-        statistics.reverseSolution();
+        statistics.revertSolution();
     }
 
 }

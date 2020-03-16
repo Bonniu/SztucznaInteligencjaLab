@@ -106,6 +106,6 @@ public class Hamming extends Strategy {
             statistics.solution += tmp.getPrevMove();
             tmp = tmp.getParent();
         }
-        statistics.reverseSolution();
+        statistics.revertSolution();
     }
 }

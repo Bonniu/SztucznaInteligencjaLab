@@ -32,8 +32,6 @@ public class Manhattan extends Strategy {
         }
 
         if (node.getBoard().checkIfCorrect()) {
-            System.out.println("----SOLVED----");
-            System.out.println(node.getBoard());
             getStatistics().solved = true;
             makeSolution(node, getStatistics());
             return;
@@ -74,7 +72,39 @@ public class Manhattan extends Strategy {
     }
 
     private int functionValue(Node node) {
-        return node.getBoard().distancesFromCorrectPlaces() + node.getDepth();
+        return distancesFromCorrectPlaces(node.getBoard()) + node.getDepth();
+    }
+
+    private int distancesFromCorrectPlaces(Board board) {
+        ArrayList<ArrayList<Integer>> correct = new ArrayList<>(); // tablica wzorcowa i poniżej jej wypełnianie
+        for (int j = 0; j < board.getRows(); j++) {
+            ArrayList<Integer> temp = new ArrayList<>(board.getRows());
+            for (int i = 1; i <= board.getColumns(); i++) {
+                if (i + board.getColumns() * j != board.getColumns() * board.getRows())
+                    temp.add(i + board.getColumns() * j);
+                else
+                    temp.add(0);
+            }
+            correct.add(temp);
+        }
+        // obliczanie dystansu
+        int sum = 0;
+        for (int i = 0; i < board.getRows(); i++) {
+            for (int j = 0; j < board.getColumns(); j++) {
+                int tmpValue = board.getTab().get(i).get(j); // element
+
+                for (int x = 0; x < board.getRows(); x++) {
+                    for (int y = 0; y < board.getColumns(); y++) {
+                        if (correct.get(x).get(y) == tmpValue) {
+                            sum += Math.abs(x - i) + Math.abs(y - j);
+                        }
+
+                    }
+                }
+
+            }
+        }
+        return sum;
     }
 
     private void sortQueue() {
@@ -106,6 +136,6 @@ public class Manhattan extends Strategy {
             statistics.solution += tmp.getPrevMove();
             tmp = tmp.getParent();
         }
-        statistics.reverseSolution();
+        statistics.revertSolution();
     }
 }

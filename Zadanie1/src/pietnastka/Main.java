@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Main {
 
-    public static final int MAX_DEPTH = 5;
+    public static final int MAX_DEPTH = 20;
 
     public static void main(String[] args) throws CloneNotSupportedException, IOException {
         StartController c;

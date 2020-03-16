@@ -13,17 +13,12 @@ public class Statistics {
     private long startTime;
     public double elapsedTime = -1;
 
-    public boolean reverseSolution() {
+    public void revertSolution() {
         this.solution = solution.trim();
-        char[] tmp = solution.toCharArray();
-        for (int i = 0; i < tmp.length / 2; i++) {
-            char t = tmp[i];
-            tmp[i] = tmp[tmp.length - i - 1];
-            tmp[tmp.length - i - 1] = t;
-        }
-        solution = "";
-        for (char c : tmp) solution += c;
-        return false;
+        StringBuilder tmp = new StringBuilder();
+        for (int i = solution.length() - 1; i >= 0; i--)
+            tmp.append(solution.charAt(i));
+        this.solution = tmp.toString();
     }
 
 
@@ -35,7 +30,6 @@ public class Statistics {
                 ", solution='" + solution + '\'' +
                 ", visitedNodes=" + visitedNodes +
                 ", processedNodes=" + processedNodes +
-                ", startTime=" + startTime +
                 ", elapsedTime=" + elapsedTime +
                 '}';
     }
