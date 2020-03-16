@@ -61,7 +61,7 @@ public class Hamming extends Strategy {
             node.getChildren().add(childNode);
         }
         if (node.getUpChild() != null && node.getPrevMove() != 'D') {
-            Node childNode = node.getDownChild();
+            Node childNode = node.getUpChild();
             childNode.setPrevMove('D');
             node.getChildren().add(childNode);
         }

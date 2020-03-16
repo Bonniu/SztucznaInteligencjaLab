@@ -17,7 +17,6 @@ public class BFS extends Strategy {
     }
 
     public List<Node> solveBFS() throws CloneNotSupportedException {
-        List<Node> sciezkaDoRozw = new ArrayList<>();
         List<Node> wezlyDoOdwiedzenia = new ArrayList<>();
         List<Node> odwiedzoneWezly = new ArrayList<>();
 
@@ -40,7 +39,7 @@ public class BFS extends Strategy {
                     Node poprawnyNode = odwiedzoneWezly.get(i);
                     System.out.println(poprawnyNode.getBoard().toString());
                     System.out.println("xd1");
-                    findWay(sciezkaDoRozw, poprawnyNode);
+                    findWay(poprawnyNode);
                 }
             }
 
@@ -57,18 +56,11 @@ public class BFS extends Strategy {
     }
 
     //znajduje droge do rozwiazania
-    public void findWay(List<Node> sciezka, Node n) {
+    public void findWay(Node n) {
         Node aktualnyNode = n;
-        sciezka.add(aktualnyNode);
-
         while (aktualnyNode.getParent() != null) {
+            this.getStatistics().solution += aktualnyNode.getPrevMove();
             aktualnyNode = aktualnyNode.getParent();
-            sciezka.add(aktualnyNode);
-        }
-        System.out.println("TRASA DO ROZWIAZANIA OD KONCA");
-
-        for (int i = 0; i < sciezka.size(); i++) {
-            this.getStatistics().solution += sciezka.get(i).getPrevMove();
         }
         getStatistics().reverseSolution();
     }

@@ -174,4 +174,38 @@ public class Board implements Cloneable {
         tmp.append("-------------------");
         return tmp.toString();
     }
+
+    public int distancesFromCorrectPlaces() {
+        ArrayList<ArrayList<Integer>> correct = new ArrayList<>();
+        for (int j = 0; j < rows; j++) {
+            ArrayList<Integer> temp = new ArrayList<>(rows);
+            for (int i = 1; i <= columns; i++) {
+                if (i + columns * j != columns * rows)
+                    temp.add(i + columns * j);
+                else
+                    temp.add(0);
+            }
+            correct.add(temp);
+        }
+        System.out.println(correct);
+        System.out.println(tab);
+        int sum = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                int tmpValue = tab.get(i).get(j); // element
+
+                for (int x = 0; x < rows; x++) {
+                    for (int y = 0; y < columns; y++) {
+                        if (correct.get(x).get(y) == tmpValue) {
+                            sum += Math.abs(x - i) + Math.abs(y - j);
+                        }
+
+                    }
+                }
+
+            }
+        }
+        System.out.println(sum);
+        return sum;
+    }
 }

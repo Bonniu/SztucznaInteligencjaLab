@@ -28,13 +28,11 @@ public class Main {
             st.startStopwatch();
             dfs.solveDFS();
             st.stopStopwatch();
-            System.out.println(st.toString());
         } else if (c.getMethod().toLowerCase().equals("bfs")) {
             BFS bfs = new BFS(n, c.getOrderHeuristics(), st);
             st.startStopwatch();
             bfs.solveBFS();
             st.stopStopwatch();
-            System.out.println(st.toString());
         } else {
             //astr +
             if (c.getOrderHeuristics().equals("manh")) {
@@ -43,18 +41,18 @@ public class Main {
                 st.startStopwatch();
                 manhattan.solveManhattan();
                 st.stopStopwatch();
-                System.out.println(st.toString());
             } else {
                 // astr hamm
                 Hamming hamming = new Hamming(n, st);
                 st.startStopwatch();
                 hamming.solveHamming();
                 st.stopStopwatch();
-                System.out.println(st.toString());
+
 
 
             }
         }
+        System.out.println(st.toString());
         st.saveSolutionToFile(c.getSaveFileName(), c.getAdditionalFileName());
     }
 

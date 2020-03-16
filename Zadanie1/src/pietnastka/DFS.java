@@ -26,7 +26,7 @@ public class DFS extends Strategy {
     public void iterate(String order, Node node) throws CloneNotSupportedException {
         if (node.getDepth() > Main.MAX_DEPTH || getStatistics().solved)
             return;
-        else if (node.getParent() != null) {
+        else if (node.getParent() != null) {  /////????????????????????
             getStatistics().visitedNodes++;
         }
 
