@@ -17,50 +17,44 @@ public class BFS extends Strategy {
     }
 
     public List<Node> solveBFS() throws CloneNotSupportedException {
-        List<Node> wezlyDoOdwiedzenia = new ArrayList<>();
-        List<Node> odwiedzoneWezly = new ArrayList<>();
+        List<Node> nodesToVisit = new ArrayList<>();
+        List<Node> visitedNodes = new ArrayList<>();
 
-        //dodaje pierwsza galez
-        wezlyDoOdwiedzenia.add(getParentNode());
+        nodesToVisit.add(getParentNode()); // adds root to visited
 
         while (!getStatistics().solved) {
-            Node aktualnyWezel = wezlyDoOdwiedzenia.get(0);
-            odwiedzoneWezly.add(aktualnyWezel);
-            wezlyDoOdwiedzenia.remove(0);
-            moveBFS(aktualnyWezel, getOrder());
-            //dodaje kolejne wezly (ich dzieci do kolejki)
-            wezlyDoOdwiedzenia.addAll(aktualnyWezel.getChildren());
+            Node currentNode = nodesToVisit.get(0);
+            visitedNodes.add(currentNode);
+            nodesToVisit.remove(0);
+            moveBFS(currentNode, getOrder());
+            nodesToVisit.addAll(currentNode.getChildren()); // adds kids of current node to list
 
-            // zeby sprawdzac co chwila czy poprawne
-            for (int i = 0; i < odwiedzoneWezly.size(); i++) {
-                if (odwiedzoneWezly.get(i).getBoard().checkIfCorrect()) {
+            // for continuously checking whether we've found solution
+            for (int i = 0; i < visitedNodes.size(); i++) {
+                if (visitedNodes.get(i).getBoard().checkIfCorrect()) {
                     getStatistics().solved = true;
-                    System.out.println("xd");
-                    Node poprawnyNode = odwiedzoneWezly.get(i);
-                    System.out.println(poprawnyNode.getBoard().toString());
-                    System.out.println("xd1");
-                    findWay(poprawnyNode);
+                    getStatistics().visitedNodes = visitedNodes.size();
+                    Node correctNode = visitedNodes.get(i);
+                    getStatistics().maxDepth = correctNode.getDepth();
+                    System.out.println(correctNode.getBoard().toString());
+                    findWay(correctNode);
                 }
             }
-
-            System.out.println("---- RODZIC:");
-            System.out.println("ilosc dzieci:" + aktualnyWezel.getChildren().size());
-            System.out.println("wezly do odwiedzenia:" + wezlyDoOdwiedzenia.size());
-            System.out.println("odwiedzone wezly: " + odwiedzoneWezly.size());
+//            for visualisation
+//            System.out.println("---- PARENT:");
+//            System.out.println("NUMBER OF KIDS:" + currentNode.getChildren().size());
+//            System.out.println("NODES TO VISIT:" + nodesToVisit.size());
+//            System.out.println("VISITED NODES: " + visitedNodes.size());
         }
-//        System.out.println("odwiedzone!!!!");
-//        for (int i = 0; i < odwiedzoneWezly.size(); i++) {
-//            System.out.println(odwiedzoneWezly.get(i).getBoard().toString());
-//        }
-        return odwiedzoneWezly;
+        return visitedNodes;
     }
 
-    //znajduje droge do rozwiazania
+    //finds way to solution
     public void findWay(Node n) {
-        Node aktualnyNode = n;
-        while (aktualnyNode.getParent() != null) {
-            this.getStatistics().solution += aktualnyNode.getPrevMove();
-            aktualnyNode = aktualnyNode.getParent();
+        Node currentNode = n;
+        while (currentNode.getParent() != null) {
+            this.getStatistics().solution += currentNode.getPrevMove();
+            currentNode = currentNode.getParent();
         }
         getStatistics().revertSolution();
     }
