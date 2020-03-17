@@ -48,7 +48,7 @@ public class Main {
                 st.stopStopwatch();
             }
         }
-        System.out.println(st.toString());
+       // System.out.println(st.toString());
         st.saveSolutionToFile(c.getSaveFileName(), c.getAdditionalFileName());
     }
 

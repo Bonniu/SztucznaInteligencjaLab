@@ -13,7 +13,6 @@ public class Hamming extends Strategy {
 
     public boolean solveHamming() throws CloneNotSupportedException {
         addNodeChildren(getParentNode());
-        System.out.println(getParentNode().getChildren().size());
         getStatistics().processedNodes += getParentNode().getChildren().size();
         queue.addAll(getParentNode().getChildren());
         sortQueue();
