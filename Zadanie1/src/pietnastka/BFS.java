@@ -34,6 +34,7 @@ public class BFS extends Strategy {
                 if (visitedNodes.get(i).getBoard().checkIfCorrect()) {
                     getStatistics().solved = true;
                     getStatistics().visitedNodes = visitedNodes.size();
+                    getStatistics().processedNodes = visitedNodes.size() + nodesToVisit.size();
                     Node correctNode = visitedNodes.get(i);
                     getStatistics().maxDepth = correctNode.getDepth();
                     findWay(correctNode);
