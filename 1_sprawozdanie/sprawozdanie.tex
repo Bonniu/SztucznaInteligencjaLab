@@ -105,7 +105,7 @@ Napisany przez nas program jest aplikacją konsolową napisaną w języku Java. 
 \end{enumerate}
 Poniżej przedstawiamy krótki opis, jak zostały zaimplementowane poszczególne strategie.
 \subsection{DFS}
-Do przechowywania stanów nie używamy specjalnej struktury danych, lecz za pomocą rekurencji program wie, który węzęł musi odwiedzić jako następny. Zatem przechowywanie stanów jest możliwe dzięki odkładaniu węzłów na stercie.
+Do przechowywania stanów nie używamy specjalnej struktury danych, lecz za pomocą rekurencji program wie, który węzęł musi odwiedzić jako następny. Zatem przechowywanie stanów jest możliwe dzięki odkładaniu wywołań funkcji na stosie.
 \subsection{BFS}
 {\color{red} elo here do napisania}
 
@@ -121,27 +121,64 @@ Na poniższym rysunku przedstawiony jest diagram UML naszego programu.
 \newpage
 
 \section{Materiały i metody}
-{\color{blue}
-W tym miejscu należy opisać, jak przeprowadzone zostały wszystkie badania,
-których wyniki i dyskusja zamieszczane są w dalszych sekcjach. Opis ten
-powinien być na tyle dokładny, aby osoba czytająca go potrafiła wszystkie
-przeprowadzone badania samodzielnie powtórzyć w celu zweryfikowania ich
-poprawności. Przy opisie należy odwoływać się i stosować do
-opisanych w sekcji drugiej wzorów i oznaczeń, a także w jasny sposób opisać
-cel konkretnego testu. Najlepiej byłoby wyraźnie wyszczególnić (ponumerować)
-poszczególne eksperymenty tak, aby łatwo było się do nich odwoływać dalej.}
+Do przeprowadzenia badań nad utworzoną przez nas aplikacją użyliśmy kilku programów znajdujących się na stronie przedmiotu na Wikampie.
+\begin{enumerate}
+\item Program do utworzenia 413 różnych układów piętnastki z głębokością 1-7
+\item Skrypt uruchamiający naszą aplikację z każdym algorytmem oraz ewentualną heurystyką i kolejnością
+\item Skrypt Podsumowujący uzyskane wyniki z poprzedniego skryptu
+\end{enumerate}
+Otrzymane wyniki przedstawiliśmy na wykresach w następnej sekcji.
 
 \section{Wyniki}
-{\color{blue}
-W tej sekcji należy zaprezentować, dla każdego przeprowadzonego eksperymentu,
-kompletny zestaw wyników w postaci tabel, wykresów (preferowane) itp. Powinny
-być one tak ponazywane, aby było wiadomo, do czego się odnoszą. Wszystkie
-tabele i wykresy należy oczywiście opisać (opisać co jest na osiach, w
-kolumnach itd.) stosując się do przyjętych wcześniej oznaczeń. Nie należy tu
-komentować i interpretować wyników, gdyż miejsce na to jest w kolejnej sekcji.
-Tu również dobrze jest wprowadzić oznaczenia (tabel, wykresów), aby móc się do
-nich odwoływać poniżej.}
+Na poniższych wykresach przedstawiliśmy średnie wartości:
+\begin{itemize}
+\item Czasu wykonywania
+\item Maksymalnej głębokości
+\item Ilości przetworzonych węzłów
+\item Ilości odwiedzonych węzłów
+\item Długości rozwiązania
+\end{itemize}
+Każdy wykres został wykonany dla każdej strategii oraz ich heurystyk.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{czasdfs.png}
+    \caption{Średni czas wykonania dla algorytmu DFS}
+	\label{czasdfs}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{czasbfs.png}
+    \caption{Średni czas wykonania dla algorytmu BFS}
+	\label{czasbfs}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{czasastr.png}
+    \caption{Średni czas wykonania dla algorytmu A*}
+	\label{czasastr}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{maxdepthDFS.png}
+    \caption{Średnia maksymalna głębokość dla algorytmu DFS}
+	\label{maxdepthDFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{maxdepthBFS.png}
+    \caption{Średnia maksymalna głębokość dla algorytmu BFS}
+	\label{maxdepthBFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{maxdepthAstar.png}
+    \caption{Średnia maksymalna głębokość dla algorytmu A*}
+	\label{maxdepthAstar}
+\end{figure}
+
+
+\newpage
 \section{Dyskusja}
 {\color{blue}
 Sekcja ta powinna zawierać dokładną interpretację uzyskanych wyników
