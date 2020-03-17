@@ -13,6 +13,8 @@ public class Hamming extends Strategy {
 
     public boolean solveHamming() throws CloneNotSupportedException {
         addNodeChildren(getParentNode());
+        System.out.println(getParentNode().getChildren().size());
+        getStatistics().processedNodes += getParentNode().getChildren().size();
         queue.addAll(getParentNode().getChildren());
         sortQueue();
         iterate(queue.get(queue.size() - 1));
@@ -21,27 +23,22 @@ public class Hamming extends Strategy {
 
     public void iterate(Node node) throws CloneNotSupportedException {
         queue.remove(queue.size() - 1);
+        getStatistics().visitedNodes++;
         if (node.getDepth() > Main.MAX_DEPTH || getStatistics().solved)
             return;
-        else if (node.getParent() != null) {
-            getStatistics().visitedNodes++;
-        }
-
         if (node.getDepth() > getStatistics().maxDepth) {
             getStatistics().maxDepth = node.getDepth();
         }
-
         if (node.getBoard().checkIfCorrect()) {
-            System.out.println("----SOLVED----");
-            System.out.println(node.getBoard());
             getStatistics().solved = true;
             makeSolution(node, getStatistics());
             return;
         }
         addNodeChildren(node);
+        getStatistics().processedNodes += node.getChildren().size();
         queue.addAll(node.getChildren());
         sortQueue();
-        iterate(queue.get(queue.size()-1));
+        iterate(queue.get(queue.size() - 1));
     }
 
     private void addNodeChildren(Node node) throws CloneNotSupportedException {
@@ -62,7 +59,7 @@ public class Hamming extends Strategy {
         }
         if (node.getUpChild() != null && node.getPrevMove() != 'D') {
             Node childNode = node.getUpChild();
-            childNode.setPrevMove('D');
+            childNode.setPrevMove('U');
             node.getChildren().add(childNode);
         }
     }

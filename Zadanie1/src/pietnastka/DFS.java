@@ -24,11 +24,12 @@ public class DFS extends Strategy {
     }
 
     public void iterate(String order, Node node) throws CloneNotSupportedException {
-        if (node.getDepth() > Main.MAX_DEPTH || getStatistics().solved)
+        getStatistics().visitedNodes++;
+        if (node.getDepth() > Main.MAX_DEPTH || getStatistics().solved) {
             return;
-        else if (node.getParent() != null) {  /////????????????????????
-            getStatistics().visitedNodes++;
         }
+        getStatistics().processedNodes++;
+
 
         if (node.getDepth() > getStatistics().maxDepth) {
             getStatistics().maxDepth = node.getDepth();
@@ -39,7 +40,6 @@ public class DFS extends Strategy {
             makeSolution(node, getStatistics());
             return;
         }
-
         //adding children and recursion
         for (int i = 0; i < order.toCharArray().length; i++) {
             if (order.toCharArray()[i] == 'L') {
@@ -73,6 +73,10 @@ public class DFS extends Strategy {
                     node.getChildren().add(childNode);
                     iterate(order, childNode);
                 }
+            }
+            if (getStatistics().solved) {
+                getStatistics().visitedNodes++;
+                break;
             }
 
         }

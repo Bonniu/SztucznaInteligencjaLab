@@ -8,8 +8,8 @@ public class Statistics {
     public int maxDepth = 1;
     public boolean solved = false;
     public String solution = "";
-    public int visitedNodes = 1;
-    public int processedNodes = 1;
+    public int visitedNodes = 0;
+    public int processedNodes = 0;
     private long startTime;
     public double elapsedTime = -1;
 
@@ -43,7 +43,6 @@ public class Statistics {
         long timeElapsed = System.nanoTime() - startTime;
         timeElapsed /= 1000;
         double milisecs = ((double) timeElapsed) / 1000;
-        System.out.println("Execution time in milliseconds : " + milisecs);
         this.elapsedTime = milisecs;
     }
 

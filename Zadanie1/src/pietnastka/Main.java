@@ -21,7 +21,6 @@ public class Main {
     }
 
     public static void methodController(StartController c, Node n) throws CloneNotSupportedException, IOException {
-        System.out.println(c.toString());
         Statistics st = new Statistics();
         if (c.getMethod().toLowerCase().equals("dfs")) {
             DFS dfs = new DFS(n, c.getOrderHeuristics(), st);
@@ -47,9 +46,6 @@ public class Main {
                 st.startStopwatch();
                 hamming.solveHamming();
                 st.stopStopwatch();
-
-
-
             }
         }
         System.out.println(st.toString());

@@ -14,6 +14,7 @@ public class Manhattan extends Strategy {
     public boolean solveManhattan() throws CloneNotSupportedException {
         addNodeChildren(getParentNode());
         queue.addAll(getParentNode().getChildren());
+        getStatistics().processedNodes += getParentNode().getChildren().size();
         sortQueue();
         iterate(queue.get(queue.size() - 1));
         return true;
@@ -37,6 +38,7 @@ public class Manhattan extends Strategy {
             return;
         }
         addNodeChildren(node);
+        getStatistics().processedNodes += node.getChildren().size();
         queue.addAll(node.getChildren());
         sortQueue();
         iterate(queue.get(queue.size() - 1));
@@ -60,7 +62,7 @@ public class Manhattan extends Strategy {
         }
         if (node.getUpChild() != null && node.getPrevMove() != 'D') {
             Node childNode = node.getUpChild();
-            childNode.setPrevMove('D');
+            childNode.setPrevMove('U');
             node.getChildren().add(childNode);
         }
     }
