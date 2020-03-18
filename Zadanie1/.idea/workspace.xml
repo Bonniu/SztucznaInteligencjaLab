@@ -7,12 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc9387e-4162-472f-8ab1-2917aea6c10b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/excel dane/Nowy Arkusz programu Microsoft Excel (2) .xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/excel dane/Nowy Arkusz programu Microsoft Excel (2) .xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pietnastka/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pietnastka/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dane/xd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dane/xd.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pietnastka/DFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pietnastka/DFS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pietnastka.Main" />
       <module name="untitled104" />
-      <option name="PROGRAM_PARAMETERS" value="bfs LRUD dane/xd.txt dane/save.txt dane/additional.txt" />
+      <option name="PROGRAM_PARAMETERS" value="dfs ULRD dane/xd.txt dane/save.txt dane/additional.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -56,6 +53,7 @@
       <workItem from="1584457203381" duration="1162000" />
       <workItem from="1584460440741" duration="31000" />
       <workItem from="1584549585988" duration="1593000" />
+      <workItem from="1584556360090" duration="428000" />
     </task>
     <servers />
   </component>
@@ -63,30 +61,30 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584459877803">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584556402111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584459877803" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584556402111" />
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584459954567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584459954567" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584460353462">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584556868671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584460353462" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584460353462">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584556868671" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584556868671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584460353462" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584460353462">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584556868671" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584556868671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584460353462" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584460353462">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584556868671" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584556868671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584460353462" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584556868671" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1584549737853">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

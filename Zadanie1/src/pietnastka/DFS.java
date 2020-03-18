@@ -80,6 +80,7 @@ public class DFS extends Strategy {
             }
 
         }
+        node.getChildren().clear();
     }
 
     private void makeSolution(Node node, Statistics statistics) {
