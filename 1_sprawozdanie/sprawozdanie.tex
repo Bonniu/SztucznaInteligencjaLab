@@ -139,7 +139,7 @@ Na poniższych wykresach przedstawiliśmy średnie wartości:
 \item Długości rozwiązania
 \end{itemize}
 Każdy wykres został wykonany dla każdej strategii oraz ich heurystyk.
-
+%%%% czas wykonania %%%%
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{czasdfs.png}
@@ -148,19 +148,20 @@ Każdy wykres został wykonany dla każdej strategii oraz ich heurystyk.
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.85\textwidth]{czasbfs.png}
+    \includegraphics[width=0.89\textwidth]{czasbfs.png}
     \caption{Średni czas wykonania dla algorytmu BFS}
 	\label{czasbfs}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.85\textwidth]{czasastr.png}
+    \includegraphics[width=0.89\textwidth]{czasastr.png}
     \caption{Średni czas wykonania dla algorytmu A*}
 	\label{czasastr}
 \end{figure}
+%%%% max depth %%%%
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.83\textwidth]{maxdepthDFS.png}
+    \includegraphics[width=0.89\textwidth]{maxdepthDFS.png}
     \caption{Średnia maksymalna głębokość dla algorytmu DFS}
 	\label{maxdepthDFS}
 \end{figure}
@@ -176,9 +177,65 @@ Każdy wykres został wykonany dla każdej strategii oraz ich heurystyk.
     \caption{Średnia maksymalna głębokość dla algorytmu A*}
 	\label{maxdepthAstar}
 \end{figure}
+%%%% przetworzone węzły %%%%
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{processedDFS.png}
+    \caption{Średnia ilość przetworzonych węzłów dla algorytmu DFS}
+	\label{processedDFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{processedBFS.png}
+    \caption{Średnia ilość przetworzonych węzłów dla algorytmu BFS}
+	\label{processedBFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{processedastar.png}
+    \caption{Średnia ilość przetworzonych węzłów dla algorytmu A*}
+	\label{processedastar}
+\end{figure}
+%%%% odwiedzone węzły %%%%
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{visitedDFS.png}
+    \caption{Średnia ilość odwiedzonych węzłów dla algorytmu DFS}
+	\label{visitedDFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{visitedBFS.png}
+    \caption{Średnia ilość odwiedzonych węzłów dla algorytmu BFS}
+	\label{visitedBFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{visitedastar.png}
+    \caption{Średnia ilość odwiedzonych węzłów dla algorytmu A*}
+	\label{visitedastar}
+\end{figure}
+%%%% średnia długość rozwiązania %%%%
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{sredniaDFS.png}
+    \caption{Średnia długość rozwiązania dla algorytmu DFS}
+	\label{sredniaDFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{sredniaBFS.png}
+    \caption{Średnia długość rozwiązania dla algorytmu BFS}
+	\label{sredniaBFS}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.83\textwidth]{sredniaastr.png}
+    \caption{Średnia długość rozwiązania dla algorytmu A*}
+	\label{sredniaastr}
+\end{figure}
+%%%% podusmowanie %%%%
 
-
-\newpage
 \section{Dyskusja}
 {\color{blue}
 Sekcja ta powinna zawierać dokładną interpretację uzyskanych wyników
