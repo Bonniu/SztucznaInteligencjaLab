@@ -6,19 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cc9387e-4162-472f-8ab1-2917aea6c10b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dane/load.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/excel dane/Nowy Arkusz programu Microsoft Excel (2) .xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/excel dane/Nowy Arkusz programu Microsoft Excel (2) .xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/rys/czasALL.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/rys/czasALL.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../1_sprawozdanie/sprawozdanie.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/additional.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dane/additional.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dane/save.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dane/xd.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/untitled104_jar/untitled104.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/untitled104_jar/untitled104.jar" afterDir="false" />
-    </list>
+    <list default="true" id="9cc9387e-4162-472f-8ab1-2917aea6c10b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +54,7 @@
       <workItem from="1584695374636" duration="639000" />
       <workItem from="1584812329375" duration="742000" />
       <workItem from="1584992413242" duration="108000" />
+      <workItem from="1585076171539" duration="699000" />
     </task>
     <servers />
   </component>
@@ -81,6 +70,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584459954567" />
+    <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1585078999423">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585078999423" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584992531975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -101,6 +94,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584557493338" />
+    <state x="601" y="244" key="new project wizard" timestamp="1585079041606">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="601" y="244" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585079041606" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1584459947046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
