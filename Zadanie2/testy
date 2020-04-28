@@ -1,0 +1,13 @@
+activation='logistic' - nie dziala
+activation='tanh' - nie dziala
+
+shuffle=False i random_state=3  żeby były wyniki takie same za każdym razem (random_state na cokolwiek innego niz None)
+
+hidden_layer_sizes=(50, 50, 50), alpha=0.05 średni błąd 244.39236940261
+hidden_layer_sizes=(50, 50, 50), alpha=0.07 średni błąd 244.44438620343917
+hidden_layer_sizes=(50, 50, 50), alpha=0.08 średni błąd 240.66854334494104
+hidden_layer_sizes=(50, 50, 50), alpha=0.1 średni błąd 244.76046125587845
+hidden_layer_sizes=(70, 70), alpha=0.01 średni błąd 242.17845426270728
+hidden_layer_sizes=(70, 70), alpha=0.1  średni błąd 240.96383349021042
+hidden_layer_sizes=(70, 70, 70, 70, 70), alpha=0.001 średni błąd 232.0006105158675
+

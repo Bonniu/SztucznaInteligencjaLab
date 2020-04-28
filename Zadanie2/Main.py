@@ -14,6 +14,7 @@ def find_solution_and_errors(predicted: [], reference: []):
         tmp_y = reference[i][1] - predicted[i][1]
         errors.append(sqrt(tmp_x ** 2 + tmp_y ** 2))
         print(i, "predicted:", predicted[i], "reference: ", reference[i], " error:", errors[i])
+    print("średni błąd", sum(errors) / len(errors))
     return errors
 
 
@@ -39,12 +40,8 @@ if __name__ == "__main__":
     fp = FileReader()
     train, train_ref, test, test_ref = fp.read_files()
 
-    # mlp = MLPRegressor(hidden_layer_sizes=50, activation='tanh', solver='adam', alpha=0.0001,
-    # learning_rate_init=0.002,
-    #                    max_iter=200, shuffle=True, tol=1, verbose=False, early_stopping=False)
-
-    mlp = MLPRegressor(hidden_layer_sizes=(50, 50), activation='relu', solver='adam', alpha=0.001,
-                       max_iter=200, shuffle=True, tol=1, verbose=False, early_stopping=False)
+    mlp = MLPRegressor(max_iter=200, tol=1, activation='relu', solver='adam', shuffle=False, random_state=3,
+                       hidden_layer_sizes=(70, 70, 70, 70, 70), alpha=0.001)
 
     print(mlp.__repr__())
 
