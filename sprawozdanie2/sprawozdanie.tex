@@ -49,12 +49,25 @@ Nauka takiej sieci neuronowej polega na nieustannym zmienianiu wag neuronu w tak
 \subsection{Opis architektury sieci neuronowej}
 Nasza sieć neuronowa wykorzystana do rozwiązania problemu korygowania błędów systemu pomiarowego posiada następujące właściwości:
 \begin{enumerate}
-	\item Liczba warstw sieci neuronowej: 5
-	\item Liczebność neuronów w poszczególnych warstwach: 50
+	\item Liczba warstw sieci neuronowej: 2
+	\item Liczebność neuronów w poszczególnych warstwach: 3, 2
 	\item Funkcje aktywacji zastosowanych w poszczególnych warstwach: ,,Relu'', czyli  \textsl{rectified linear unit}, f(x) = max(0, x)
-	\color{red} \item Liczba próbek z poprzednich chwil czasowych wykorzystywanych przez sieć neuronową: 
-	\item Wagi poszczególnych neuronów w warstwach: 
 \end{enumerate}
+
+\subsubsection{Liczba próbek z poprzednich chwil czasowych} 
+Aby przeprowadzić proces nauki sieci neuronowej wykorzystywane są wszystkie próbki z 12 plików testowych. Jest to liczba 18480 próbek $(12 * 1540)$
+
+\subsubsection{Wagi poszczególnych neuronów w warstwach} 
+Poniżej zamieszczono wagi poszczególnych neuronów we wszystkich warstwach. Jedna linia w nawiasach kwadratowych reprezentuje jeden neuron.
+\begin{verbatim}
+1. warstwa ukryta
+[ 0.85605396 -0.8344208 ]
+[ 0.41779025  0.40123822]
+[-0.2743517   0.65437693]
+2. warstwa wyjściowa
+[ 0.56129234  1.19838389 -0.00534168]
+[ 0.02747517  0.7267963   1.04682753]
+\end{verbatim}
 \subsection{Opis algorytmu uczenia sieci neuronowej}
 Sieć neuronowa została nauczona za pomocą algorytmu ,,Adam''. Jest to stochastyczny optymalizator gradientowy. Wybraliśmy go, ponieważ dobrze nadaje się do badania dużych zbiorów danych (co najmniej kilka tysięcy danych treningowych). \cite{doc} 
 
@@ -69,7 +82,7 @@ Algorytm przebiega w następujący sposób \cite{adamdzialanie}:
 \end{enumerate}
 
 \section{Opis implementacji i kod źródłowy} 
-Napisany przez nas program jest aplikacją w języku Python. Składa się z dwóch plików: FileReader.py, zawierający klasę odpowiedzialną za wczytanie plików z danymi treningowymi oraz testowymi. Drugi plik, Main.py, odpowiada za sterowanie programem oraz siecią neuronową.
+Napisany przez nas program jest aplikacją w języku Python. Do zaimplementowania sieci neuronowej skorzystaliśmy z biblioteki sklearn. \cite{doc} Projekt składa się z dwóch plików: FileReader.py, zawierający klasę odpowiedzialną za wczytanie plików z danymi treningowymi oraz testowymi. Drugi plik, Main.py, odpowiada za sterowanie programem oraz siecią neuronową.
 
 \subsection{FileReader.py}
 
@@ -83,7 +96,41 @@ Napisany przez nas program jest aplikacją w języku Python. Składa się z dwó
 \section{Materiały i metody}
 Do przeprowadzenia nauki sieci neuronowej użyliśmy 12 plików z danymi pomiarowymi przejazdu robota. Następnie, do sprawdzenia wyników nauczenia się sieci neuronowej wykorzystaliśmy plik z danymi testowymi. \cite{pliki}
 
-\section{Porównanie dystrybuant błędu pomiaru dla danych ze zbioru testowego oraz dla danych uzyskanych w wyniku filtracji przy użyciu sieci neuronowej}
+\subsection{Średnie wyniki}
+W tej sekcji przedstawione zostanie 10 uruchomień programu wraz z uzyskanym błędem średniokwadratowym. Wyniki zostaną przedstawione w formie tabeli wraz ze średnią z tych wyników.
+
+\subsection{Porównanie dystrybuant błędu pomiaru dla danych ze zbioru testowego oraz dla danych uzyskanych w wyniku filtracji przy użyciu sieci neuronowej}
+W tym eksperymencie zostanie porównana dystrybuanta błędu dla danych ze zbioru testowego oraz dla danych uzyskanych w wyniku filtracji. Stan, jaki zostanie przedstawiony to stan, dla którego w tabeli średnich wyników błąd średniokwadratowy był najmniejszy.
+
+
+\section{Wyniki}
+
+\subsection{Średnie wyniki}
+
+\begin{center}
+	\begin{tabular}{c c} 
+		\hline
+		l.p. & błąd średniokwadratowy \\ [0.5ex] 
+		\hline\hline
+		1 & 177.15926881905335  \\ 
+		2 & 202.3597557362831 \\
+		3 & 177.83635802867894 \\
+		4 & 176.54373960197958 \\
+		5 & 193.51257888666163  \\
+		6 & 152.11542952911833  \\
+		7 & 186.3669723390483  \\
+		8 & 191.7291476240959  \\
+		9 & 202.73906790249782  \\
+		10 & 184.05795340024943  \\
+		\hline
+		\hline
+		 &średnia: 184,44  \\		
+		\hline
+	\end{tabular}
+\end{center}
+
+\newpage
+\subsection{Porównanie dystrybuant błędu pomiaru dla danych ze zbioru testowego oraz dla danych uzyskanych w wyniku filtracji przy użyciu sieci neuronowej}
 
 \begin{figure}[h!]
 	\centering
@@ -94,19 +141,21 @@ Do przeprowadzenia nauki sieci neuronowej użyliśmy 12 plików z danymi pomiaro
 
 
 
-\section{Dyskusja} % 6. Dyskusja  %
-dyskusja
+\section{Dyskusja i wnioski} % 6. Dyskusja  %
+Jak można zauważyć na rysunku \ref{dystrybuanta}, wyniki filtracji dały lepsze wyniki dystrybuanty błędu. 
 
-\section{Wnioski} % 7. Wnioski  %
-wnioski
 \begin{thebibliography}{0}
   	\bibitem{zadanie} \textsl{https://ftims.edu.p.lodz.pl/mod/page/view.php?id=73137} [dostęp 08.05.2020]
 	\bibitem{mlp} \textsl{https://pl.wikipedia.org/wiki/Perceptron\_wielowarstwowy} [dostęp 08.05.2020]
-	\bibitem{mlpr} \textsl{https://www.researchgate.net/publication/244858164/figure/fig2/AS:670028080902154@1536758551608/Structural-graph-of-multilayer-perceptron-MLP-neural-network-model.png} [dostęp 08.05.2020]
+	\bibitem{mlpr} \textsl{https://www.researchgate.net/publication/244858164/figure/fig2/AS:
+		670028080902154@1536758551608/Structural-graph-of-multilayer-
+		perceptron-MLP-neural-network-model.png} [dostęp 08.05.2020]
 	\bibitem{neuron} \textsl{https://pl.wikipedia.org/wiki/Neuron\_McCullocha-Pittsa} [dostęp 08.05.2020]
 	\bibitem{adam} \textsl{https://arxiv.org/pdf/1412.6980.pdf} [dostęp 08.05.2020]
-	\bibitem{doc} \textsl{https://scikit-learn.org/stable/modules/generated/sklearn.neural\_network.MLPRegressor.html} [dostęp 08.05.2020]
-	\bibitem{adampl} \textsl{https://piotrmicek.staff.tcs.uj.edu.pl/machine-learning/docs/szymon-stankiewicz-lincencjat.pdf} [dostęp 08.05.2020]
+	\bibitem{doc} \textsl{https://scikit-learn.org/stable/modules/generated/sklearn.neural\_network.
+		MLPRegressor.html} [dostęp 08.05.2020]
+	\bibitem{adampl} \textsl{https://piotrmicek.staff.tcs.uj.edu.pl/machine-learning/docs/szymon-
+		stankiewicz-lincencjat.pdf} [dostęp 08.05.2020]
 	\bibitem{adamdzialanie} \textsl{https://engmrk.com/adam-optimization-algorithm/} [dostęp 08.05.2020]
 	\bibitem{pliki} \textsl{https://ftims.edu.p.lodz.pl/mod/resource/view.php?id=73138} [dostęp 08.05.2020]
 \end{thebibliography}

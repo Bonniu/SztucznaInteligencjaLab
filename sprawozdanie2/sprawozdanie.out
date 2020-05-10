@@ -1,12 +1,17 @@
 \BOOKMARK [1][-]{section.1}{Cel}{}% 1
 \BOOKMARK [1][-]{section.2}{Wprowadzenie}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Opis architektury sieci neuronowej}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Opis algorytmu uczenia sieci neuronowej}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Opis implementacji i kod zr\363d\233owy}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{FileReader.py}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Main.py}{section.3}% 7
-\BOOKMARK [1][-]{section.4}{Materia\233y i metody}{}% 8
-\BOOKMARK [1][-]{section.5}{Por\363wnanie dystrybuant b\233edu pomiaru dla danych ze zbioru testowego oraz dla danych uzyskanych w wyniku filtracji przy uzyciu sieci neuronowej}{}% 9
-\BOOKMARK [1][-]{section.6}{Dyskusja}{}% 10
-\BOOKMARK [1][-]{section.7}{Wnioski}{}% 11
-\BOOKMARK [1][-]{section*.1}{Literatura}{}% 12
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Liczba pr\363bek z poprzednich chwil czasowych}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Wagi poszczeg\363lnych neuron\363w w warstwach}{subsection.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Opis algorytmu uczenia sieci neuronowej}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Opis implementacji i kod zr\363d\233owy}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{FileReader.py}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Main.py}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Materia\233y i metody}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Srednie wyniki}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Por\363wnanie dystrybuant b\233edu pomiaru dla danych ze zbioru testowego oraz dla danych uzyskanych w wyniku filtracji przy uzyciu sieci neuronowej}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Wyniki}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Srednie wyniki}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Por\363wnanie dystrybuant b\233edu pomiaru dla danych ze zbioru testowego oraz dla danych uzyskanych w wyniku filtracji przy uzyciu sieci neuronowej}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Dyskusja i wnioski}{}% 16
+\BOOKMARK [1][-]{section*.1}{Literatura}{}% 17

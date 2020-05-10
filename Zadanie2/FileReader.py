@@ -28,6 +28,7 @@ class FileReader:
     def read_test_file(self):
         xlsx_file = Path(test_file + suffix)
         wb_obj = openpyxl.load_workbook(xlsx_file)
+        wb_obj.active = 0
         sheet = wb_obj.active
         for row in sheet.iter_rows(2, nr_of_records + 1):
             self.test.append([row[4].value, row[5].value])

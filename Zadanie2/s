@@ -1,0 +1,19 @@
+na koniec maina zeby byly losowe
+
+    # for i in range(100):
+    #     print(i)
+    #     mlp = MLPRegressor(activation='relu', solver='adam',
+    #                        shuffle=True, random_state=i,
+    #                        hidden_layer_sizes=(3))
+    #     mlp.fit(train, train_ref)
+    #     predicted = list(mlp.predict(test))
+    #     errors = []
+    #     count_errors(predicted, test_ref)
+    #     print("average error:", sum(errors) / len(errors))
+
+
+     mlp = MLPRegressor(activation='relu', solver='adam',
+                           shuffle=True, random_state=None,
+                            hidden_layer_sizes=(3))
+
+

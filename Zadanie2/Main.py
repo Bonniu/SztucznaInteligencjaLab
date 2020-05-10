@@ -1,3 +1,4 @@
+from datetime import datetime
 import pandas as pd
 import warnings
 from FileReader import FileReader
@@ -6,10 +7,9 @@ from sklearn.neural_network import MLPRegressor
 from sklearn.exceptions import ConvergenceWarning
 
 warnings.filterwarnings(action='ignore', category=ConvergenceWarning)
-mlp = MLPRegressor(max_iter=200, tol=1, activation='relu',
-                   solver='adam', shuffle=False,
-                   random_state=3, hidden_layer_sizes=(3, 3),
-                   alpha=0.001, momentum=1)
+mlp = MLPRegressor(activation='relu', solver='adam',
+                   shuffle=True, random_state=None,
+                   hidden_layer_sizes=(3))
 
 
 def count_errors(predicted_: [], reference: []):
@@ -43,18 +43,28 @@ def print_results():
         print(i + 1, "predicted:", predicted[i],
               "reference:", test_ref[i],
               " error:", errors[i])
-    print("average error:", sum(errors) / len(errors))
+
+
+def print_layers():
+    mlp.coefs_.reverse()
+    for i in range(len(mlp.coefs_) - 1):
+        print(i + 1, ". hidden layer")
+        print(mlp.coefs_[i])
+    print(len(mlp.coefs_), ". output layer")
+    print(mlp.coefs_[len(mlp.coefs_) - 1])
 
 
 if __name__ == "__main__":
-    train, train_ref, test, test_ref = FileReader().read_files()
+    fp = FileReader()
+    train, train_ref, test, test_ref = fp.read_files()
+    errors = []
+    before = datetime.now()
     mlp.fit(train, train_ref)
     predicted = list(mlp.predict(test))
-    errors = []
     count_errors(predicted, test_ref)
-    print_results()
+    print("time elapsed:", datetime.now() - before)
+    # print_results()
+    print("average error:", sum(errors) / len(errors))
+    print_layers()
     count_distribution()
 
-    # print(mlp.coefs_[0])  # warstwa wyjsciowa
-    # print(mlp.coefs_[1])  # warstwa ukryta
-    # print(mlp.coefs_[2])  # warstwa ukryta

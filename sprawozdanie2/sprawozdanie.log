@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  9 MAY 2020 16:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  10 MAY 2020 15:46
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -466,7 +466,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<./rys/mlpr.png, id=54, 656.4525pt x 507.8975pt>
+<./rys/mlpr.png, id=74, 656.4525pt x 507.8975pt>
 File: ./rys/mlpr.png Graphic file (type png)
 <use ./rys/mlpr.png>
 Package pdftex.def Info: ./rys/mlpr.png  used on input line 45.
@@ -477,14 +477,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1
 
-{C:/Users/Radek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./rys/m
-lpr.png>] ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstlang1.sty"
+{C:/Users/Radek/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (13.80176pt too wide) in paragraph at lines 58--59
+[]\T1/lmr/m/n/12 Aby prze-pro-wa-dzi¢ pro-ces na-uki sieci neu-ro-no-wej wy-ko-
+rzy-sty-wane s¡ wszyst-
+ []
+
+[2 <./rys/mlpr.png>]
+("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstlang1.sty"
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 76.
+nput line 89.
 
-(../Zadanie2/FileReader.py
+(../Zadanie2/FileReader.py [3]
 Overfull \hbox (11.84756pt too wide) in paragraph at lines 24--25
 [][][][][][][][][][][][][][][][][][][][] 
  []
@@ -499,132 +505,122 @@ Overfull \hbox (54.14731pt too wide) in paragraph at lines 26--28
 [][][][][][][][][][][][][][][][][][][] 
  []
 
-[3]
-Overfull \hbox (11.84756pt too wide) in paragraph at lines 32--33
+
+Overfull \hbox (11.84756pt too wide) in paragraph at lines 33--34
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (18.89752pt too wide) in paragraph at lines 33--34
+Overfull \hbox (18.89752pt too wide) in paragraph at lines 34--35
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (47.09735pt too wide) in paragraph at lines 34--36
+Overfull \hbox (47.09735pt too wide) in paragraph at lines 35--37
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 )
-Overfull \hbox (82.34714pt too wide) in paragraph at lines 43--76
+Overfull \hbox (82.34714pt too wide) in paragraph at lines 44--89
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 (../Zadanie2/Main.py
-Overfull \hbox (96.44705pt too wide) in paragraph at lines 8--9
+Overfull \hbox (96.44705pt too wide) in paragraph at lines 9--10
 [][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (18.89752pt too wide) in paragraph at lines 9--10
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (40.0474pt too wide) in paragraph at lines 11--12
-[][][][][][][][][][][] 
- []
-
+[4]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 9.
-("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [4]
+)
 Overfull \hbox (138.7468pt too wide) in paragraph at lines 38--41
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (61.19727pt too wide) in paragraph at lines 50--51
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-)
-<./rys/dystrybuanta.png, id=176, 886.06032pt x 578.16pt>
+[5]) [6]
+<./rys/dystrybuanta.png, id=247, 884.55469pt x 575.90157pt>
 File: ./rys/dystrybuanta.png Graphic file (type png)
 <use ./rys/dystrybuanta.png>
-Package pdftex.def Info: ./rys/dystrybuanta.png  used on input line 90.
-(pdftex.def)             Requested size: 390.0pt x 254.4794pt.
+Package pdftex.def Info: ./rys/dystrybuanta.png  used on input line 137.
+(pdftex.def)             Requested size: 390.0pt x 253.91594pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 []\T1/lmr/m/sl/10.95 https://ftims.edu.p.lodz.pl/mod/page/view.php?id=73137 \T1
 /lmr/m/n/10.95 [do-st¦p
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
 []\T1/lmr/m/sl/10.95 https://pl.wikipedia.org/wiki/Perceptron_wielowarstwowy \T
 1/lmr/m/n/10.95 [do-st¦p
  []
 
 
-Overfull \hbox (484.9613pt too wide) in paragraph at lines 105--106
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 []\T1/lmr/m/sl/10.95 https://www.researchgate.net/publication/244858164/figure/
-fig2/AS:670028080902154@1536758551608/Structural-graph-of-multilayer-perceptron
--MLP-neural-network-model.png
+fig2/AS:
  []
 
 
-Overfull \hbox (85.04504pt too wide) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+\T1/lmr/m/sl/10.95 670028080902154@1536758551608/Structural-graph-of-multilayer
+-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 []\T1/lmr/m/sl/10.95 https://scikit-learn.org/stable/modules/generated/sklearn.
-neural_network.MLPRegressor.html
+neural_network.
  []
 
 
-Overfull \hbox (83.43161pt too wide) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 []\T1/lmr/m/sl/10.95 https://piotrmicek.staff.tcs.uj.edu.pl/machine-learning/do
-cs/szymon-stankiewicz-lincencjat.pdf
+cs/szymon-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 []\T1/lmr/m/sl/10.95 https://ftims.edu.p.lodz.pl/mod/resource/view.php?id=73138
  \T1/lmr/m/n/10.95 [do-st¦p
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
-[6 <./rys/dystrybuanta.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
+[7 <./rys/dystrybuanta.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 164.
+ [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 164.
  (sprawozdanie.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 164.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 164.
 Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: 8862034C7996B16D80A159A13927CDF4;821.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
+(rerunfilecheck)             Checksum: 4273354675136E16669254A39B335D19;1382.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
  ) 
 Here is how much of TeX's memory you used:
- 9190 strings out of 481556
- 133548 string characters out of 2923635
- 607064 words of memory out of 3000000
- 24105 multiletter control sequences out of 15000+200000
+ 9215 strings out of 481556
+ 133939 string characters out of 2923635
+ 610052 words of memory out of 3000000
+ 24115 multiletter control sequences out of 15000+200000
  574042 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,7n,42p,430b,2011s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,7n,42p,438b,2011s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/
-dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
-2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
-Output written on sprawozdanie.pdf (6 pages, 284130 bytes).
+dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.en
+c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/
+lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.
+pfb>
+Output written on sprawozdanie.pdf (8 pages, 311803 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 143 named destinations out of 1000 (max. 500000)
- 107 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 333 PDF objects out of 1000 (max. 8388607)
+ 158 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
