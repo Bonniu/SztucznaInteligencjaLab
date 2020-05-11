@@ -49,8 +49,8 @@ Nauka takiej sieci neuronowej polega na nieustannym zmienianiu wag neuronu w tak
 \subsection{Opis architektury sieci neuronowej}
 Nasza sieć neuronowa wykorzystana do rozwiązania problemu korygowania błędów systemu pomiarowego posiada następujące właściwości:
 \begin{enumerate}
-	\item Liczba warstw sieci neuronowej: 2
-	\item Liczebność neuronów w poszczególnych warstwach: 3, 2
+	\item Liczba warstw sieci neuronowej: 3
+	\item Liczebność neuronów w poszczególnych warstwach: 10, 10, 2
 	\item Funkcje aktywacji zastosowanych w poszczególnych warstwach: ,,Relu'', czyli  \textsl{rectified linear unit}, f(x) = max(0, x)
 \end{enumerate}
 
@@ -61,12 +61,53 @@ Aby przeprowadzić proces nauki sieci neuronowej wykorzystywane są wszystkie pr
 Poniżej zamieszczono wagi poszczególnych neuronów we wszystkich warstwach. Jedna linia w nawiasach kwadratowych reprezentuje jeden neuron.
 \begin{verbatim}
 1. warstwa ukryta
-[ 0.85605396 -0.8344208 ]
-[ 0.41779025  0.40123822]
-[-0.2743517   0.65437693]
-2. warstwa wyjściowa
-[ 0.56129234  1.19838389 -0.00534168]
-[ 0.02747517  0.7267963   1.04682753]
+[-1.23375458e-001  7.94100981e-001]
+[-2.92331001e-001  2.38476257e-001]
+[-1.33371584e-001 -1.72654967e-001]
+[-1.81861327e-164 -4.04404674e-095]
+[ 1.29968497e-001 -9.72615882e-002]
+[ 4.90853994e-001 -2.57220408e-001]
+[-9.23860986e-119 -3.12179028e-116]
+[ 8.93640409e-001 -5.43202208e-002]
+[ 7.40150710e-001  6.60676117e-001]
+[ 2.36371348e-002 -4.64817813e-002]
+2 . warstwa ukryta
+[ 5.52452122e-001 -5.08299100e-001  1.41338235e-001  8.83743572e-108
+2.17952389e-001  2.79062378e-001  8.03689785e-174  6.12793712e-001
+6.06303969e-003 -4.21046383e-001]
+[ 2.64907997e-003  2.85407243e-001 -2.03636138e-001 -1.64597018e-106
+-2.11288507e-002  7.15034103e-001 -1.24715444e-146  1.24008012e-001
+3.97066552e-001  4.18572170e-001]
+[-3.51424251e-001 -5.30200403e-001 -4.46716309e-001  2.11969833e-131
+7.12532615e-001 -1.14788777e-001  4.01768261e-115  1.48418813e-001
+5.69410181e-002  2.03291422e-001]
+[ 1.03498717e-001 -9.21659496e-168 -4.82692791e-001  4.83777460e-185
+-6.58208965e-001 -3.46685323e-001 -1.15518718e-182  2.93216777e-002
+8.24810715e-001 -4.05225226e-001]
+[ 2.01559825e-001  6.92536386e-002 -2.08967289e-001 -4.37030894e-177
+-1.05561256e+000 -8.22267952e-001 -6.43370336e-176 -3.52411495e-001
+-4.21548893e-002 -1.55207137e-001]
+[ 1.35976079e-002 -2.25227367e-001  4.63008767e-001 -2.04190965e-109
+4.30572082e-001  1.61384144e-001  3.22599010e-112  1.86620954e-001
+6.59981726e-002 -1.50063502e-002]
+[ 6.30981908e-001  5.02501751e-001  3.24810816e-002 -1.14821069e-161
+-2.09791598e-001  6.58959908e-002  1.23921097e-165 -4.15497221e-001
+2.31134195e-001  4.23259366e-001]
+[-2.39583697e-001 -1.08163379e-001 -6.38441829e-001 -5.81473515e-127
+-1.63474792e+000 -1.64768207e+000  5.98010323e-123 -1.06846567e+000
+-5.06731216e-002 -9.43238699e-001]
+[ 5.13144282e-001  4.02430559e-001 -3.42404574e-001  6.17709041e-187
+2.53937076e-001  2.29476011e-001 -3.24949093e-142 -3.45835555e-002
+5.04102339e-001  1.75993747e-001]
+[-1.58974957e-001 -1.80699261e-002  2.27106887e-001 -3.63011544e-176
+-1.10082638e+000 -5.54022886e-001 -4.75216572e-175 -2.37265231e-002
+-1.52076915e-001  2.13107528e-001]
+3 . warstwa wyjściowa
+[ 0.17495295  0.54685419  0.59511465 -0.17234932 -0.48053058  0.73486196
+0.06814518 -0.22763146  0.15510266 -0.49255801]
+[ 0.44247204 -0.18147683  0.09409345 -1.00811302  0.15969283 -0.28396407
+0.77533887 -0.76543497  0.41894718  0.2116356 ]
+
 \end{verbatim}
 \subsection{Opis algorytmu uczenia sieci neuronowej}
 Sieć neuronowa została nauczona za pomocą algorytmu ,,Adam''. Jest to stochastyczny optymalizator gradientowy. Wybraliśmy go, ponieważ dobrze nadaje się do badania dużych zbiorów danych (co najmniej kilka tysięcy danych treningowych). \cite{doc} 
@@ -112,19 +153,20 @@ W tym eksperymencie zostanie porównana dystrybuanta błędu dla danych ze zbior
 		\hline
 		l.p. & błąd średniokwadratowy \\ [0.5ex] 
 		\hline\hline
-		1 & 177.15926881905335  \\ 
-		2 & 202.3597557362831 \\
-		3 & 177.83635802867894 \\
-		4 & 176.54373960197958 \\
-		5 & 193.51257888666163  \\
-		6 & 152.11542952911833  \\
-		7 & 186.3669723390483  \\
-		8 & 191.7291476240959  \\
-		9 & 202.73906790249782  \\
-		10 & 184.05795340024943  \\
+		
+		1 & 204.4743063229632 \\
+		2 & 216.34308745569933 \\
+		3 & 198.141449741413 \\
+		4 & 216.6007126331273 \\
+		5 & 217.05594982265822 \\
+		6 & 224.2286190810854 \\
+		7 & 205.68419749293432 \\
+		8 & 215.09645283725675 \\
+		9 & 216.98464907922195 \\
+		10& 222.9360631602122 \\ 
 		\hline
 		\hline
-		 &średnia: 184,44  \\		
+		 &średnia: 213,8167 \\		
 		\hline
 	\end{tabular}
 \end{center}
@@ -141,8 +183,11 @@ W tym eksperymencie zostanie porównana dystrybuanta błędu dla danych ze zbior
 
 
 
-\section{Dyskusja i wnioski} % 6. Dyskusja  %
-Jak można zauważyć na rysunku \ref{dystrybuanta}, wyniki filtracji dały lepsze wyniki dystrybuanty błędu. 
+\section{Dyskusja i wnioski}
+\begin{itemize}
+	\item Po uruchomieniu programu 10-krotnie średni błąd średniokwadratowy jaki uzyskaliśmy to w przybliżeniu 214, co świadczy o prawidłowym zaimplementowaniu sieci neuronowej i odpowiednim doborze parametrów (dla danych testowych średnia błędu średniokwadratowego wynosiła 322).
+	\item Jak można zauważyć na rysunku \ref{dystrybuanta}, wyniki filtracji dały lepsze wyniki dystrybuanty błędu. Dystrybuanta błędu już przed osiągnięciem pułapu błędu średniego 400 osiągnęła wynik powyżej 0,95.
+\end{itemize}
 
 \begin{thebibliography}{0}
   	\bibitem{zadanie} \textsl{https://ftims.edu.p.lodz.pl/mod/page/view.php?id=73137} [dostęp 08.05.2020]

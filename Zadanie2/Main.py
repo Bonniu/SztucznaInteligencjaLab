@@ -8,8 +8,8 @@ from sklearn.exceptions import ConvergenceWarning
 
 warnings.filterwarnings(action='ignore', category=ConvergenceWarning)
 mlp = MLPRegressor(activation='relu', solver='adam',
-                   shuffle=True, random_state=None,
-                   hidden_layer_sizes=(3))
+                   shuffle=True, random_state=14,
+                   hidden_layer_sizes=(10, 10))
 
 
 def count_errors(predicted_: [], reference: []):
@@ -35,7 +35,8 @@ def count_elements_less_than_i(distribution, i):
 
 def save_to_xlsx(tab):
     df = pd.DataFrame({"dystrybuanta": tab})
-    df.to_excel('test.xlsx', sheet_name='sheet1', index=False, header=True)
+    df.to_excel('test.xlsx', sheet_name='sheet1',
+                index=False, header=True)
 
 
 def print_results():
@@ -67,4 +68,3 @@ if __name__ == "__main__":
     print("average error:", sum(errors) / len(errors))
     print_layers()
     count_distribution()
-

@@ -11,9 +11,5 @@ na koniec maina zeby byly losowe
     #     count_errors(predicted, test_ref)
     #     print("average error:", sum(errors) / len(errors))
 
-
-     mlp = MLPRegressor(activation='relu', solver='adam',
-                           shuffle=True, random_state=None,
-                            hidden_layer_sizes=(3))
-
+random_state 14
 
