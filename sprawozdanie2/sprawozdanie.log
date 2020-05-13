@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  11 MAY 2020 09:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.5)  13 MAY 2020 12:55
 entering extended mode
 **./sprawozdanie.tex
 (sprawozdanie.tex
@@ -483,13 +483,13 @@ Overfull \hbox (13.80176pt too wide) in paragraph at lines 58--59
 rzy-sty-wane s¡ wszyst-
  []
 
-
+[2 <./rys/mlpr.png>]
 Overfull \hbox (29.8862pt too wide) in paragraph at lines 111--111
 []\T1/lmtt/m/n/12 [ 5.52452122e-001 -5.08299100e-001  1.41338235e-001  8.837435
 72e-108[] 
  []
 
-[2 <./rys/mlpr.png>]
+
 Overfull \hbox (17.49417pt too wide) in paragraph at lines 111--111
 []\T1/lmtt/m/n/12 2.17952389e-001  2.79062378e-001  8.03689785e-174  6.12793712
 e-001[] 
@@ -621,12 +621,12 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 130.
 
-(../Zadanie2/FileReader.py
+(../Zadanie2/FileReader.py [4]
 Overfull \hbox (11.84756pt too wide) in paragraph at lines 24--25
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
-[4]
+
 Overfull \hbox (25.94748pt too wide) in paragraph at lines 25--26
 [][][][][][][][][][][][][][][][][][][] 
  []
@@ -665,8 +665,12 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 9.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [5]) [6] [7]
-<./rys/dystrybuanta.png, id=253, 881.54344pt x 575.14874pt>
+) [5])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+[7]
+<./rys/dystrybuanta.png, id=249, 881.54344pt x 575.14874pt>
 File: ./rys/dystrybuanta.png Graphic file (type png)
 <use ./rys/dystrybuanta.png>
 Package pdftex.def Info: ./rys/dystrybuanta.png  used on input line 179.
@@ -724,11 +728,11 @@ Package rerunfilecheck Info: File `sprawozdanie.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 9216 strings out of 481556
- 133951 string characters out of 2923635
- 608575 words of memory out of 3000000
- 24114 multiletter control sequences out of 15000+200000
- 574042 words of font info for 49 fonts, out of 3000000 for 9000
+ 9209 strings out of 481556
+ 133864 string characters out of 2923635
+ 607725 words of memory out of 3000000
+ 24111 multiletter control sequences out of 15000+200000
+ 569780 words of font info for 48 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,7n,42p,430b,2011s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
@@ -737,14 +741,13 @@ dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.en
 c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/
-lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.
-pfb>
-Output written on sprawozdanie.pdf (9 pages, 314766 bytes).
+lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/lm/lmtt12.pfb>
+Output written on sprawozdanie.pdf (9 pages, 299410 bytes).
 PDF statistics:
- 338 PDF objects out of 1000 (max. 8388607)
- 160 named destinations out of 1000 (max. 500000)
+ 331 PDF objects out of 1000 (max. 8388607)
+ 157 named destinations out of 1000 (max. 500000)
  147 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -59,12 +59,9 @@ if __name__ == "__main__":
     fp = FileReader()
     train, train_ref, test, test_ref = fp.read_files()
     errors = []
-    before = datetime.now()
     mlp.fit(train, train_ref)
     predicted = list(mlp.predict(test))
     count_errors(predicted, test_ref)
-    print("time elapsed:", datetime.now() - before)
-    # print_results()
     print("average error:", sum(errors) / len(errors))
     print_layers()
     count_distribution()
