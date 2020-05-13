@@ -9,6 +9,8 @@ from sklearn.exceptions import ConvergenceWarning
 warnings.filterwarnings(action='ignore', category=ConvergenceWarning)
 mlp = MLPRegressor(activation='relu', solver='adam',
                    shuffle=True, random_state=14,
+                   # random_state=None - da za kazdym razem
+                   # inny wynik
                    hidden_layer_sizes=(10, 10))
 
 
